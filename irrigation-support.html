@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <title>Kisaan Sathi | Irrigation Support</title>
+    <script>
+      if (localStorage.getItem('kisaanSathiTheme') === 'dark') {
+        document.documentElement.dataset.theme = 'dark';
+      }
+    </script>
+    <style>
+      :root {
+        --green-900: #0b3b2a;
+        --green-800: #124d39;
+        --green-600: #2d8b5f;
+        --green-100: #ebf7ef;
+        --text: #1d2a22;
+        --muted: #5d6d64;
+        --white: #ffffff;
+        --shadow: 0 18px 45px rgba(11, 59, 42, 0.12);
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        padding: 40px 16px;
+        display: grid;
+        place-items: center;
+        font-family: Arial, Helvetica, sans-serif;
+        color: var(--text);
+        background: linear-gradient(180deg, #f6faf7, #edf7f1);
+        line-height: 1.6;
+      }
+      .page-card {
+        width: min(760px, 100%);
+        padding: clamp(28px, 6vw, 52px);
+        border: 1px solid rgba(18, 77, 57, 0.08);
+        border-radius: 28px;
+        background: rgba(255, 255, 255, 0.96);
+        box-shadow: var(--shadow);
+      }
+      .toolbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+      .icon {
+        width: 64px;
+        height: 64px;
+        display: grid;
+        place-items: center;
+        border-radius: 18px;
+        background: var(--green-100);
+        font-size: 2rem;
+      }
+      .language-toggle {
+        padding: 10px 16px;
+        border: 1px solid rgba(18, 77, 57, 0.16);
+        border-radius: 999px;
+        background: var(--green-100);
+        color: var(--green-900);
+        font: inherit;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      h1, h2 { color: var(--green-900); line-height: 1.2; }
+      h1 { margin: 0 0 14px; font-size: clamp(2rem, 5vw, 3rem); }
+      h2 { margin: 30px 0 12px; font-size: 1.3rem; }
+      p, li { color: var(--muted); }
+      ul { padding-left: 24px; }
+      li + li { margin-top: 8px; }
+      .back-link {
+        display: inline-flex;
+        margin-top: 24px;
+        padding: 13px 21px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--green-600), var(--green-800));
+        color: var(--white);
+        font-weight: 700;
+        text-decoration: none;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+      }
+    </style>
+    <link rel="stylesheet" href="theme.css" />
+    <link rel="stylesheet" href="agri-assistant.css" />
+    <link rel="stylesheet" href="page-redesign.css" />
+  </head>
+  <body class="support-page-redesign">
+    <div class="page-loader" aria-hidden="true"><span class="page-loader-mark">🌾</span></div>
+    <main class="page-card">
+      <div class="toolbar">
+        <div class="icon" aria-hidden="true">💧</div>
+        <button class="language-toggle" id="language-toggle" type="button" aria-label="Switch to Hindi">हिंदी</button>
+        <button class="theme-toggle" type="button">Dark Mode</button>
+      </div>
+      <h1 data-en="Irrigation Support" data-hi="सिंचाई सहायता">Irrigation Support</h1>
+      <p data-en="Thoughtful irrigation planning helps crops get the water they need while reducing waste and protecting soil health." data-hi="सोच-समझकर बनाई गई सिंचाई योजना फसलों को आवश्यक पानी देती है, पानी की बर्बादी घटाती है और मिट्टी के स्वास्थ्य की रक्षा करती है।">Thoughtful irrigation planning helps crops get the water they need while reducing waste and protecting soil health.</p>
+      <h2 data-en="Water-smart practices" data-hi="पानी बचाने के तरीके">Water-smart practices</h2>
+      <ul>
+        <li data-en="Check soil moisture and crop growth stage before irrigating." data-hi="सिंचाई से पहले मिट्टी की नमी और फसल की अवस्था जांचें।">Check soil moisture and crop growth stage before irrigating.</li>
+        <li data-en="Irrigate during cooler parts of the day when practical to reduce evaporation." data-hi="संभव हो तो वाष्पीकरण कम करने के लिए दिन के ठंडे समय में सिंचाई करें।">Irrigate during cooler parts of the day when practical to reduce evaporation.</li>
+        <li data-en="Maintain pipes, channels, and pumps to prevent leaks and uneven watering." data-hi="रिसाव और असमान सिंचाई रोकने के लिए पाइप, नालियों और पंपों का रखरखाव करें।">Maintain pipes, channels, and pumps to prevent leaks and uneven watering.</li>
+        <li data-en="Consider drip or sprinkler systems where they suit the crop, field, and budget." data-hi="फसल, खेत और बजट के अनुकूल होने पर ड्रिप या स्प्रिंकलर प्रणाली पर विचार करें।">Consider drip or sprinkler systems where they suit the crop, field, and budget.</li>
+      </ul>
+      <p data-en="Water needs vary by crop, soil, weather, and growth stage. Consult a local agriculture or irrigation expert for a schedule suited to your farm." data-hi="पानी की जरूरत फसल, मिट्टी, मौसम और विकास अवस्था के अनुसार बदलती है। अपने खेत के अनुकूल समय-सारणी के लिए स्थानीय कृषि या सिंचाई विशेषज्ञ से सलाह लें।">Water needs vary by crop, soil, weather, and growth stage. Consult a local agriculture or irrigation expert for a schedule suited to your farm.</p>
+      <section class="field-guide-panel">
+        <div class="section-head">
+          <h2 data-en="A simple field-ready checklist" data-hi="खेत के लिए एक सरल चेकलिस्ट">A simple field-ready checklist</h2>
+          <p data-en="A few regular checks can help you spot problems early and make more informed farm decisions." data-hi="कुछ नियमित जांच से समस्याओं को जल्दी पहचानने और खेती के बेहतर फैसले लेने में मदद मिल सकती है।">A few regular checks can help you spot problems early and make more informed farm decisions.</p>
+        </div>
+        <div class="field-guide-grid">
+          <article class="field-guide-card">
+            <div class="field-guide-icon" aria-hidden="true">🪴</div>
+            <h3 data-en="Start with the soil" data-hi="मिट्टी से शुरुआत करें">Start with the soil</h3>
+            <p data-en="Check soil condition and choose nutrients based on a soil test, not guesswork." data-hi="मिट्टी की जांच करें और अंदाज के बजाय मिट्टी परीक्षण के आधार पर पोषक तत्व चुनें।">Check soil condition and choose nutrients based on a soil test, not guesswork.</p>
+          </article>
+          <article class="field-guide-card">
+            <div class="field-guide-icon" aria-hidden="true">💧</div>
+            <h3 data-en="Plan water wisely" data-hi="समझदारी से पानी की योजना बनाएं">Plan water wisely</h3>
+            <p data-en="Match watering to crop needs and local conditions to avoid waste or stress." data-hi="पानी की बर्बादी या फसल पर तनाव से बचने के लिए सिंचाई को फसल की जरूरत और स्थानीय परिस्थितियों के अनुसार रखें।">Match watering to crop needs and local conditions to avoid waste or stress.</p>
+          </article>
+          <article class="field-guide-card">
+            <div class="field-guide-icon" aria-hidden="true">🔎</div>
+            <h3 data-en="Check crops regularly" data-hi="फसलों की नियमित जांच करें">Check crops regularly</h3>
+            <p data-en="Look for unusual spots, insects, or wilting early; ask an expert before treatment." data-hi="असामान्य धब्बों, कीटों या मुरझाने के लक्षणों को जल्दी पहचानें; उपचार से पहले विशेषज्ञ से सलाह लें।">Look for unusual spots, insects, or wilting early; ask an expert before treatment.</p>
+          </article>
+        </div>
+        <a class="field-guide-link" href="index.html#contact"><span data-en="Have a question about your field? Talk to an expert" data-hi="अपने खेत के बारे में सवाल है? विशेषज्ञ से बात करें">Have a question about your field? Talk to an expert</span> <span aria-hidden="true">→</span></a>
+      </section>
+      <a class="back-link" href="index.html#services" data-en="Back to Home" data-hi="मुखपृष्ठ पर वापस जाएं">Back to Home</a>
+    </main>
+    <script>
+      const languageToggle = document.getElementById('language-toggle');
+      const backLink = document.querySelector('.back-link');
+      const fieldGuideLink = document.querySelector('.field-guide-link');
+      let isHindi = new URLSearchParams(window.location.search).get('lang') === 'hi';
+      function setLanguage(useHindi) {
+        isHindi = useHindi;
+        document.querySelectorAll('[data-en][data-hi]').forEach((element) => {
+          element.textContent = isHindi ? element.dataset.hi : element.dataset.en;
+        });
+        document.documentElement.lang = isHindi ? 'hi' : 'en';
+        document.title = isHindi ? 'किसान साथी | सिंचाई सहायता' : 'Kisaan Sathi | Irrigation Support';
+        languageToggle.textContent = isHindi ? 'English' : 'हिंदी';
+        languageToggle.setAttribute('aria-label', isHindi ? 'Switch to English' : 'Switch to Hindi');
+        if (window.kisaanSathiRefreshThemeLabel) {
+          window.kisaanSathiRefreshThemeLabel();
+        }
+        backLink.href = isHindi ? 'index.html?lang=hi#services' : 'index.html#services';
+        fieldGuideLink.href = isHindi ? 'index.html?lang=hi#contact' : 'index.html#contact';
+      }
+      languageToggle.addEventListener('click', () => {
+        window.kisaanSathiLanguageTransition(languageToggle, () => setLanguage(!isHindi));
+      });
+      setLanguage(isHindi);
+    </script>
+    <script src="theme.js"></script>
+    <script src="agri-assistant.js"></script>
+  </body>
+</html>
