@@ -34,11 +34,17 @@
         update();
       } finally {
         document.body.classList.remove('is-language-changing');
+        document.body.classList.add('is-language-entering');
+        window.requestAnimationFrame(() => {
+          window.requestAnimationFrame(() => {
+            document.body.classList.remove('is-language-entering');
+          });
+        });
         window.setTimeout(() => {
           trigger.disabled = wasDisabled;
-        }, 550);
+        }, 300);
       }
-    }, 280);
+    }, 260);
   };
 
   const pageLoader = document.querySelector('.page-loader');

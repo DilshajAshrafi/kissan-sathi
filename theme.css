@@ -82,9 +82,15 @@ body > main,
 .is-language-changing .site-header,
 .is-language-changing > main,
 .is-language-changing .site-footer {
-  opacity: 0.08 !important;
-  filter: blur(3px) !important;
-  transform: translateY(6px) !important;
+  opacity: 0.2 !important;
+  transform: translateX(-18px) !important;
+}
+
+.is-language-entering .site-header,
+.is-language-entering > main,
+.is-language-entering .site-footer {
+  opacity: 0 !important;
+  transform: translateX(18px) !important;
 }
 
 .page-card,
@@ -186,6 +192,7 @@ body > main,
 .toolbar .theme-toggle,
 .guide-toolbar .language-toggle,
 .guide-toolbar .theme-toggle,
+.success-toolbar .language-toggle,
 .success-toolbar .theme-toggle,
 .back-link,
 .success-card .btn {
@@ -278,6 +285,30 @@ body > main,
   transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
+.success-toolbar .language-toggle {
+  min-height: 42px;
+  padding: 10px 14px;
+  border: 1px solid rgba(18, 77, 57, 0.16);
+  border-radius: 999px;
+  background: #fff5d9;
+  color: #704214;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.success-toolbar .language-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(112, 66, 20, 0.14);
+}
+
+:root[data-theme="dark"] .success-toolbar .language-toggle {
+  background: #44391e;
+  color: #e6c88d;
+}
+
 .guide-toolbar .theme-toggle:hover,
 .toolbar .theme-toggle:hover,
 .success-toolbar .theme-toggle:hover {
@@ -287,12 +318,14 @@ body > main,
 
 .guide-toolbar .theme-toggle:active,
 .toolbar .theme-toggle:active,
+.success-toolbar .language-toggle:active,
 .success-toolbar .theme-toggle:active {
   transform: translateY(0) scale(0.97);
 }
 
 .guide-toolbar .theme-toggle:focus-visible,
 .toolbar .theme-toggle:focus-visible,
+.success-toolbar .language-toggle:focus-visible,
 .success-toolbar .theme-toggle:focus-visible {
   outline: 3px solid var(--green-600);
   outline-offset: 3px;
