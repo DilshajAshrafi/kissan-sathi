@@ -864,7 +864,11 @@
       }
 
       .member-card:nth-child(5) {
-        background-image: url("https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=700&q=85");
+        background-image: url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=700&q=85");
+      }
+
+      .member-card:nth-child(6) {
+        background-image: url("https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=700&q=85");
       }
 
       .group-members-grid .member-card.is-visible:nth-child(1) {
@@ -887,6 +891,10 @@
         transition-delay: 520ms;
       }
 
+      .group-members-grid .member-card.is-visible:nth-child(6) {
+        transition-delay: 650ms;
+      }
+
       .group-members-grid .member-card.is-visible:hover,
       .group-members-grid .member-card.is-visible:focus-within {
         transition-delay: 0ms;
@@ -901,6 +909,19 @@
         object-fit: cover;
         border: 4px solid var(--gold-500);
         box-shadow: 0 10px 22px rgba(112, 66, 20, 0.16);
+      }
+
+      .member-card > p {
+        display: table;
+        margin: 4px auto 0;
+        padding: 6px 12px;
+        border: 1px solid rgba(215, 166, 74, 0.42);
+        border-radius: 999px;
+        background: linear-gradient(135deg, #fff4d5, #f4e6c4);
+        color: #664a17;
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 0.02em;
       }
 
       .member-card:nth-child(2) .member-icon {
@@ -1015,30 +1036,8 @@
       }
 
       .contact-grid {
-        grid-template-columns: 1.1fr 0.9fr;
+        grid-template-columns: minmax(0, 1fr);
         align-items: stretch;
-      }
-
-      .contact-list {
-        list-style: none;
-        padding: 0;
-        margin: 18px 0 0;
-        display: grid;
-        gap: 14px;
-      }
-
-      .contact-list li {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        color: var(--muted);
-      }
-
-      .contact-list .dot {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        background: var(--green-500);
       }
 
       .contact-form {
@@ -1252,6 +1251,12 @@
 
       :root[data-theme="dark"] .member-card::before {
         background: linear-gradient(180deg, rgba(13, 24, 18, 0.5), rgba(13, 24, 18, 0.82));
+      }
+
+      :root[data-theme="dark"] .member-card > p {
+        border-color: rgba(215, 166, 74, 0.42);
+        background: linear-gradient(135deg, #44391e, #493629);
+        color: #f6dfa2;
       }
 
       :root[data-theme="dark"] .contact-form input,
@@ -1883,20 +1888,6 @@
       <section class="section" id="contact">
         <div class="container contact-grid">
           <div class="contact-card">
-            <h3>Contact Kisaan Sathi</h3>
-            <p>We are here to support growers, small farmers, and agricultural communities every day.</p>
-            <ul class="contact-list">
-              <li><span class="dot"></span> Phone: +918081392456 (Kaushal Dubey)</li>
-              <li><span class="dot"></span> Phone: +918292992959 (Dilshaj Ashrafi)</li>
-              <li><span class="dot"></span> Phone: +919341055203 (Gaurav Raj)</li>
-              <li><span class="dot"></span> Phone: +918273438856 (Mohit Rawat)</li>
-              <li><span class="dot"></span> Phone: +917905110769 (Abhishek Kumar Singh)</li>
-              <li><span class="dot"></span> Email: group11idt@outlook.com</li>
-              <li><span class="dot"></span> Office: IIMT Collage Of Engineering, Knowlege park III , B3/B210 class room, 2nd floor, B-block, greater noida, uttar pradesh</li>
-            </ul>
-          </div>
-
-          <div class="contact-card">
             <h3>Request support</h3>
             <form class="contact-form" id="support-form" action="https://formsubmit.co/group11idt@outlook.com" method="POST" enctype="multipart/form-data" target="formsubmit-frame">
               <input type="hidden" name="_subject" value="New Kisaan Sathi support request" />
@@ -1935,34 +1926,47 @@
 
           <div class="group-members-grid">
             <article class="member-card" data-animate="up">
+              <img class="member-photo" src="drPushpendra%20Tyagi.jpeg" alt="Dr. Pushpendra Tyagi" />
+              <h3>Dr. Pushpendra Tyagi</h3>
+              <p>Undertaking Teacher</p>
+              <a class="member-phone" href="tel:+919560070254">+919560070254</a>
+            </article>
+
+            <article class="member-card" data-animate="up">
               <img class="member-photo" src="Kaushal%20Dubey.jpeg" alt="Kaushal Dubey" />
               <h3>Kaushal Dubey</h3>
+              <p>Team Lead</p>
               <a class="member-phone" href="tel:+918081392456">+918081392456</a>
             </article>
 
             <article class="member-card" data-animate="up">
               <img class="member-photo" src="Dilshaj%20Ashrafi.jpeg" alt="Dilshaj Ashrafi" />
               <h3>Dilshaj Ashrafi</h3>
+              <p>Full-Stack AI Engineer</p>
               <a class="member-phone" href="tel:+918292992959">+918292992959</a>
+            </article>
+
+            <article class="member-card" data-animate="up">
+              <img class="member-photo" src="Abhishek%20Kumar%20Singh.jpeg" alt="Abhishek Kumar Singh" />
+              <h3>Abhishek Kumar Singh</h3>
+              <p>Presentation &amp; Documentation Writer</p>
+              <a class="member-phone" href="tel:+917905110769">+917905110769</a>
             </article>
 
             <article class="member-card" data-animate="up">
               <img class="member-photo" src="Gaurrav%20Raj.jpeg" alt="Gaurav Raj" />
               <h3>Gaurav Raj</h3>
+              <p>Agricultural Researcher</p>
               <a class="member-phone" href="tel:+919341055203">+919341055203</a>
             </article>
 
             <article class="member-card" data-animate="up">
               <img class="member-photo" src="Mohit%20Rawat.jpeg" alt="Mohit Rawat" />
               <h3>Mohit Rawat</h3>
+              <p>Software &amp; Web Tester</p>
               <a class="member-phone" href="tel:+918273438856">+918273438856</a>
             </article>
 
-            <article class="member-card" data-animate="up">
-              <img class="member-photo" src="Abhishek%20Kumar%20Singh.jpeg" alt="Abhishek Kumar Singh" />
-              <h3>Abhishek Kumar Singh</h3>
-              <a class="member-phone" href="tel:+917905110769">+917905110769</a>
-            </article>
           </div>
         </div>
       </section>
@@ -2139,24 +2143,24 @@
         'Group 11 IDT Member': 'ग्रुप 11 आईडीटी सदस्य',
         'As CSE students, we use technology to help farmers thrive.': 'सीएसई के विद्यार्थियों के रूप में, हम किसानों की उन्नति में मदद के लिए तकनीक का उपयोग करते हैं।',
         'Hardworking Team Member': 'मेहनती टीम सदस्य',
+        'Undertaking Teacher': 'परियोजना मार्गदर्शक शिक्षक',
         'Kaushal Dubey': 'कौशल दुबे',
         'Dilshaj Ashrafi': 'दिलशाज अशरफी',
         'Gaurav Raj': 'गौरव राज',
         'Mohit Rawat': 'मोहित रावत',
         'Abhishek Kumar Singh': 'अभिषेक कुमार सिंह',
+        'Full-Stack AI Engineer': 'फुल-स्टैक एआई इंजीनियर',
+        'Undertaking Teacher': 'परियोजना मार्गदर्शक शिक्षक',
+        'Team Lead': 'टीम लीड',
+        'Presentation & Documentation Writer': 'प्रस्तुति और दस्तावेज़ लेखक',
+        'Agricultural Researcher': 'कृषि शोधकर्ता',
+        'Software & Web Tester': 'सॉफ्टवेयर और वेब परीक्षक',
+        'Dr. Pushpendra Tyagi': 'डॉ. पुष्पेंद्र त्यागी',
+        'Undertaking Teacher': 'परियोजना मार्गदर्शक शिक्षक',
         '+918081392456': '+918081392456',
         '+918292992959': '+918292992959',
         '+919341055203': '+919341055203',
         '+918273438856': '+918273438856',
-        'Contact Kisaan Sathi': 'किसान साथी से संपर्क करें',
-        'We are here to support growers, small farmers, and agricultural communities every day.': 'हम किसानों, छोटे कृषकों और कृषि समुदायों की हर दिन सहायता के लिए मौजूद हैं।',
-        'Phone: +918081392456 (Kaushal Dubey)': 'फोन: +918081392456 (कौशल दुबे)',
-        'Phone: +918292992959 (Dilshaj Ashrafi)': 'फोन: +918292992959 (दिलशाज अशरफी)',
-        'Phone: +919341055203 (Gaurav Raj)': 'फोन: +919341055203 (गौरव राज)',
-        'Phone: +918273438856 (Mohit Rawat)': 'फोन: +918273438856 (मोहित रावत)',
-        'Phone: +917905110769 (Abhishek Kumar Singh)': 'फोन: +917905110769 (अभिषेक कुमार सिंह)',
-        'Email: group11idt@outlook.com': 'ईमेल: group11idt@outlook.com',
-        'Office: IIMT Collage Of Engineering, Knowlege park III , B3/B210 class room, 2nd floor, B-block, greater noida, uttar pradesh': 'कार्यालय: आईआईएमटी कॉलेज ऑफ इंजीनियरिंग, नॉलेज पार्क III, B3/B210 कक्षा, दूसरी मंजिल, B-ब्लॉक, ग्रेटर नोएडा, उत्तर प्रदेश',
         'Request support': 'सहायता का अनुरोध करें',
         'Upload a photo or video of the problem': 'समस्या की फोटो या वीडियो अपलोड करें',
         'Send Request': 'अनुरोध भेजें',
