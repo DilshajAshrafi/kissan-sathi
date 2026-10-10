@@ -77,7 +77,7 @@ async function serveStaticFile(request, response, pathname) {
     '/node_modules',
   ];
   const containsHiddenPath = requestedPath.split('/').some((segment) => segment.startsWith('.'));
-  if (filePath !== rootDirectory && !filePath.startsWith(`${rootDirectory}${sep}`)) {
+  if (filePath !== rootDirectory && !filePath.startsWith(rootDirectory.endsWith(sep) ? rootDirectory : rootDirectory + sep)) {
     response.writeHead(403);
     response.end('Forbidden');
     return;
