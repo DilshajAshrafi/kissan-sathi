@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta
+      name="description"
+      content="Explore private and government support options that may help farmers."
+    />
+    <title>Kisaan Sathi | Scheme Guidance</title>
+    <script>
+      if (localStorage.getItem('kisaanSathiTheme') === 'dark') {
+        document.documentElement.dataset.theme = 'dark';
+      }
+    </script>
+    <style>
+      :root {
+        --green-900: #0b3b2a;
+        --green-800: #124d39;
+        --green-600: #2d8b5f;
+        --green-100: #ebf7ef;
+        --cream: #f7f5ef;
+        --text: #1d2a22;
+        --muted: #5d6d64;
+        --white: #ffffff;
+        --shadow: 0 18px 45px rgba(11, 59, 42, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        padding: 48px 16px;
+        display: grid;
+        place-items: center;
+        font-family: Arial, Helvetica, sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at top, rgba(72, 178, 109, 0.14), transparent 32%),
+          linear-gradient(180deg, #f6faf7 0%, #edf7f1 100%);
+        line-height: 1.6;
+      }
+
+      .guide-card {
+        width: min(760px, 100%);
+        padding: clamp(28px, 6vw, 52px);
+        background: rgba(255, 255, 255, 0.96);
+        border: 1px solid rgba(18, 77, 57, 0.08);
+        border-radius: 28px;
+        box-shadow: var(--shadow);
+      }
+
+      .guide-icon {
+        width: 64px;
+        height: 64px;
+        display: grid;
+        place-items: center;
+        border-radius: 18px;
+        background: var(--green-100);
+        font-size: 2rem;
+      }
+
+      .guide-toolbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .language-toggle {
+        padding: 10px 16px;
+        border: 1px solid rgba(18, 77, 57, 0.16);
+        border-radius: 999px;
+        background: var(--green-100);
+        color: var(--green-900);
+        font: inherit;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      h1,
+      h2 {
+        color: var(--green-900);
+        line-height: 1.2;
+      }
+
+      h1 {
+        margin: 0 0 14px;
+        font-size: clamp(2rem, 5vw, 3rem);
+      }
+
+      h2 {
+        margin: 30px 0 12px;
+        font-size: 1.35rem;
+      }
+
+      .scheme-section {
+        margin-top: 30px;
+      }
+
+      .scheme-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin: 0;
+        padding: 14px 18px;
+        border-radius: 14px;
+        background: var(--green-100);
+        color: var(--green-900);
+        font-weight: 800;
+        cursor: pointer;
+        list-style: none;
+      }
+
+      .scheme-toggle::-webkit-details-marker {
+        display: none;
+      }
+
+      .scheme-toggle::after {
+        content: "+";
+        flex: 0 0 auto;
+        font-size: 1.5rem;
+        line-height: 1;
+      }
+
+      .scheme-section[open] .scheme-toggle::after {
+        content: "−";
+      }
+
+      .scheme-content {
+        display: grid;
+        grid-template-rows: 0fr;
+        padding-top: 0;
+        opacity: 0;
+        visibility: hidden;
+        transition:
+          grid-template-rows 0.35s ease,
+          opacity 0.25s ease,
+          padding-top 0.35s ease,
+          visibility 0s linear 0.35s;
+      }
+
+      .scheme-section:not([open]) > .scheme-content {
+        display: grid;
+      }
+
+      .scheme-section[open] > .scheme-content {
+        grid-template-rows: 1fr;
+        padding-top: 2px;
+        opacity: 1;
+        visibility: visible;
+        transition:
+          grid-template-rows 0.35s ease,
+          opacity 0.25s ease,
+          padding-top 0.35s ease,
+          visibility 0s linear 0s;
+      }
+
+      .scheme-content-inner {
+        min-height: 0;
+        overflow: hidden;
+      }
+
+      p,
+      li {
+        color: var(--muted);
+      }
+
+      .guide-card > p {
+        margin: 0;
+      }
+
+      ul,
+      ol {
+        padding-left: 24px;
+        margin: 12px 0 0;
+      }
+
+      li + li {
+        margin-top: 8px;
+      }
+
+      .note {
+        margin-top: 24px !important;
+        padding: 16px 18px;
+        border-left: 4px solid var(--green-600);
+        border-radius: 8px;
+        background: var(--green-100);
+        font-size: 0.95rem;
+      }
+
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 30px;
+        padding: 13px 21px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--green-600), var(--green-800));
+        color: var(--white);
+        font-weight: 700;
+        text-decoration: none;
+        box-shadow: 0 12px 24px rgba(18, 77, 57, 0.15);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .back-link:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 16px 30px rgba(18, 77, 57, 0.2);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="theme.css" />
+    <link rel="stylesheet" href="agri-assistant.css" />
+    <link rel="stylesheet" href="page-redesign.css" />
+  </head>
+  <body class="support-page-redesign">
+    <div class="page-loader" aria-hidden="true"><span class="page-loader-mark">🌾</span></div>
+    <main class="guide-card">
+      <div class="guide-toolbar">
+        <div class="guide-icon" aria-hidden="true">📄</div>
+        <button class="language-toggle" id="language-toggle" type="button" aria-label="Switch to Hindi">हिंदी</button>
+        <button class="theme-toggle" type="button">Dark Mode</button>
+      </div>
+      <h1 data-en="Scheme Guidance" data-hi="योजना मार्गदर्शन">Scheme Guidance</h1>
+
+      <p
+        data-en="Explore private and government support options, and check the eligibility and terms before applying."
+        data-hi="निजी और सरकारी सहायता विकल्पों के बारे में जानें और आवेदन करने से पहले पात्रता और शर्तों की जांच करें।"
+      >
+        Explore private and government support options, and check the eligibility and terms before applying.
+      </p>
+
+      <h2 data-en="How to get started" data-hi="शुरुआत कैसे करें">How to get started</h2>
+      <ol>
+        <li data-en="Choose the kind of support you need for your farm." data-hi="अपने खेत के लिए आवश्यक सहायता का प्रकार चुनें।">Choose the kind of support you need for your farm.</li>
+        <li data-en="Check the scheme's eligibility rules and application dates." data-hi="योजना की पात्रता और आवेदन की अंतिम तिथियों की जांच करें।">Check the scheme's eligibility rules and application dates.</li>
+        <li data-en="Keep identity, bank, land, and other requested documents ready." data-hi="पहचान, बैंक, भूमि और मांगे गए अन्य दस्तावेज तैयार रखें।">Keep identity, bank, land, and other requested documents ready.</li>
+        <li data-en="Apply through the official government portal or your local agriculture office." data-hi="आधिकारिक सरकारी पोर्टल या अपने स्थानीय कृषि कार्यालय के माध्यम से आवेदन करें।">Apply through the official government portal or your local agriculture office.</li>
+      </ol>
+
+      <details class="scheme-section" open>
+        <summary class="scheme-toggle" data-en="Private Schemes" data-hi="निजी योजनाएं">Private Schemes</summary>
+        <div class="scheme-content">
+          <div class="scheme-content-inner">
+          <p
+            data-en="Banks, cooperatives, agricultural companies, and nonprofit organizations may offer farm loans, insurance, equipment financing, or other support. Contact the provider directly to confirm current offers, eligibility, fees, and repayment terms."
+            data-hi="बैंक, सहकारी समितियां, कृषि कंपनियां और गैर-लाभकारी संगठन कृषि ऋण, बीमा, उपकरण वित्तपोषण या अन्य सहायता दे सकते हैं। वर्तमान प्रस्तावों, पात्रता, शुल्क और चुकौती की शर्तों की पुष्टि के लिए प्रदाता से सीधे संपर्क करें।"
+          >
+            Banks, cooperatives, agricultural companies, and nonprofit organizations may offer farm loans, insurance, equipment financing, or other support. Contact the provider directly to confirm current offers, eligibility, fees, and repayment terms.
+          </p>
+          <h3 data-en="• Agricultural & Rural Initiatives" data-hi="• कृषि और ग्रामीण पहल">• Agricultural &amp; Rural Initiatives</h3>
+          <ol>
+            <li>
+              <strong><a href="https://www.itcportal.com/businesses/agri-business/e-choupal.aspx?utm_source=gemini" data-en="ITC e-Choupal" data-hi="आईटीसी ई-चौपाल">ITC e-Choupal</a>:</strong>
+              <span data-en="A private sector initiative equipping rural farmers with digital infrastructure to access real-time weather forecasts, localized agricultural knowledge, and transparent market prices, bypassing intermediaries." data-hi="निजी क्षेत्र की यह पहल ग्रामीण किसानों को डिजिटल सुविधाएं देती है, जिससे वे वास्तविक समय के मौसम पूर्वानुमान, स्थानीय कृषि जानकारी और पारदर्शी बाजार मूल्य प्राप्त कर सकते हैं तथा बिचौलियों से बच सकते हैं।">A private sector initiative equipping rural farmers with digital infrastructure to access real-time weather forecasts, localized agricultural knowledge, and transparent market prices, bypassing intermediaries.</span>
+            </li>
+            <li>
+              <strong><a href="https://www.tatatrusts.org/our-work/livelihood?utm_source=gemini" data-en="Tata Trusts Lakhpati Kisan Program" data-hi="टाटा ट्रस्ट्स लखपति किसान कार्यक्रम">Tata Trusts Lakhpati Kisan Program</a>:</strong>
+              <span data-en="Focuses on systematically enhancing the annual income of marginalized rural farmers by introducing advanced multi-cropping practices, irrigation technologies, and direct market linkages." data-hi="यह वंचित ग्रामीण किसानों की वार्षिक आय बढ़ाने के लिए उन्नत बहुफसली खेती, सिंचाई तकनीकों और सीधे बाजार संपर्क को बढ़ावा देता है।">Focuses on systematically enhancing the annual income of marginalized rural farmers by introducing advanced multi-cropping practices, irrigation technologies, and direct market linkages.</span>
+            </li>
+            <li>
+              <strong><a href="https://www.google.com/search?q=https://reliancefoundation.org/rural_transformation&utm_source=gemini" data-en="Reliance Foundation Rural Transformation" data-hi="रिलायंस फाउंडेशन ग्रामीण परिवर्तन">Reliance Foundation Rural Transformation</a>:</strong>
+              <span data-en="Provides specialized grants, technical agronomy assistance, and water management infrastructure development to vulnerable farming communities." data-hi="यह कमजोर किसान समुदायों को विशेष अनुदान, कृषि तकनीकी सहायता और जल प्रबंधन बुनियादी ढांचे के विकास में मदद करता है।">Provides specialized grants, technical agronomy assistance, and water management infrastructure development to vulnerable farming communities.</span>
+            </li>
+          </ol>
+          <h3 data-en="• Business Grants & Financial Support" data-hi="• व्यवसाय अनुदान और वित्तीय सहायता">• Business Grants &amp; Financial Support</h3>
+          <ol>
+            <li>
+              <strong><a href="https://www.google.com/search?q=https://www.hdfcbank.com/personal/about-us/csr&utm_source=gemini" data-en="HDFC Bank Parivartan Grants" data-hi="एचडीएफसी बैंक परिवर्तन अनुदान">HDFC Bank Parivartan Grants</a>:</strong>
+              <span data-en="Awards significant financial grants to social startups, incubators, and NGOs working specifically in agriculture, environmental sustainability, and rural livelihood development." data-hi="यह कृषि, पर्यावरणीय स्थिरता और ग्रामीण आजीविका विकास में काम करने वाले सामाजिक स्टार्टअप, इनक्यूबेटर और गैर-सरकारी संगठनों को महत्वपूर्ण वित्तीय अनुदान देता है।">Awards significant financial grants to social startups, incubators, and NGOs working specifically in agriculture, environmental sustainability, and rural livelihood development.</span>
+            </li>
+            <li>
+              <strong><a href="https://www.dbs.com/foundation/default.page?utm_source=gemini" data-en="DBS Foundation Social Enterprise Grant" data-hi="डीबीएस फाउंडेशन सामाजिक उद्यम अनुदान">DBS Foundation Social Enterprise Grant</a>:</strong>
+              <span data-en="Awards zero-equity grant funding to businesses that demonstrate a scalable model addressing critical social, environmental, or agricultural issues." data-hi="यह ऐसे व्यवसायों को बिना हिस्सेदारी मांगे अनुदान देता है जिनका विस्तार योग्य मॉडल महत्वपूर्ण सामाजिक, पर्यावरणीय या कृषि समस्याओं का समाधान करता है।">Awards zero-equity grant funding to businesses that demonstrate a scalable model addressing critical social, environmental, or agricultural issues.</span>
+            </li>
+            <li>
+              <strong><a href="https://www.google.com/search?q=https://www.icicibank.com/business-banking/startup&utm_source=gemini" data-en="ICICI Bank Startup Ecosystem" data-hi="आईसीआईसीआई बैंक स्टार्टअप इकोसिस्टम">ICICI Bank Startup Ecosystem</a>:</strong>
+              <span data-en="Provides emerging enterprises with specialized corporate banking solutions, tailored collateral-free credit lines, and direct networking access to private equity investors." data-hi="यह उभरते व्यवसायों को विशेष कॉर्पोरेट बैंकिंग समाधान, बिना जमानत के अनुरूप ऋण सुविधाएं और निजी इक्विटी निवेशकों से सीधे संपर्क का अवसर देता है।">Provides emerging enterprises with specialized corporate banking solutions, tailored collateral-free credit lines, and direct networking access to private equity investors.</span>
+            </li>
+          </ol>
+          <p class="note"
+            data-en="Scheme availability, eligibility, and application requirements can change. Confirm government scheme details with an official portal or local agriculture office. For private offers, verify all terms directly with the provider before applying."
+            data-hi="योजनाओं की उपलब्धता, पात्रता और आवेदन की आवश्यकताएं बदल सकती हैं। सरकारी योजनाओं की जानकारी आधिकारिक पोर्टल या स्थानीय कृषि कार्यालय से जांचें। निजी प्रस्तावों के लिए आवेदन से पहले सभी शर्तों की पुष्टि सीधे प्रदाता से करें।"
+          >
+            Scheme availability, eligibility, and application requirements can change. Confirm government scheme details with an official portal or local agriculture office. For private offers, verify all terms directly with the provider before applying.
+          </p>
+          </div>
+        </div>
+      </details>
+
+      <details class="scheme-section" open>
+        <summary class="scheme-toggle" data-en="Government Schemes" data-hi="सरकारी योजनाएं">Government Schemes</summary>
+        <div class="scheme-content">
+          <div class="scheme-content-inner">
+          <p
+            data-en="Government programs may offer eligible farmers support such as financial assistance, crop insurance, credit, irrigation resources, or help with farm development."
+            data-hi="सरकारी कार्यक्रम पात्र किसानों को वित्तीय सहायता, फसल बीमा, ऋण, सिंचाई संसाधन या कृषि विकास में मदद दे सकते हैं।"
+          >
+            Government programs may offer eligible farmers support such as financial assistance, crop insurance, credit, irrigation resources, or help with farm development.
+          </p>
+          <h3 data-en="• Agriculture & Farming Support" data-hi="• कृषि और खेती के लिए सहायता">• Agriculture &amp; Farming Support</h3>
+          <ol>
+            <li>
+              <strong><a href="https://pmkisan.gov.in/?utm_source=gemini" data-en="PM KISAN (Pradhan Mantri Kisan Samman Nidhi)" data-hi="पीएम किसान (प्रधानमंत्री किसान सम्मान निधि)">PM KISAN (Pradhan Mantri Kisan Samman Nidhi)</a>:</strong>
+              <span data-en="Provides direct income support of ₹6,000 per year to landholding farmer families across three equal installments." data-hi="भूमि-धारक किसान परिवारों को तीन समान किस्तों में प्रति वर्ष ₹6,000 की प्रत्यक्ष आय सहायता प्रदान करता है।">Provides direct income support of ₹6,000 per year to landholding farmer families across three equal installments.</span>
+            </li>
+            <li>
+              <strong><a href="https://pmfby.gov.in/?utm_source=gemini" data-en="Pradhan Mantri Fasal Bima Yojana (PMFBY)" data-hi="प्रधानमंत्री फसल बीमा योजना (पीएमएफबीवाई)">Pradhan Mantri Fasal Bima Yojana (PMFBY)</a>:</strong>
+              <span data-en="A crop insurance scheme protecting farmers against financial losses from crop failure due to unpredictable natural calamities or pests." data-hi="फसल बीमा योजना, जो अप्रत्याशित प्राकृतिक आपदाओं या कीटों के कारण फसल खराब होने से होने वाले वित्तीय नुकसान से किसानों की रक्षा करती है।">A crop insurance scheme protecting farmers against financial losses from crop failure due to unpredictable natural calamities or pests.</span>
+            </li>
+            <li>
+              <strong><a href="https://pmkusum.mnre.gov.in/?utm_source=gemini" data-en="PM KUSUM" data-hi="पीएम कुसुम">PM KUSUM</a>:</strong>
+              <span data-en="Subsidizes the installation of standalone solar water pumps and grid-connected renewable power plants for farmers to ensure energy security." data-hi="ऊर्जा सुरक्षा सुनिश्चित करने के लिए किसानों हेतु स्वतंत्र सौर जल पंपों और ग्रिड से जुड़े नवीकरणीय ऊर्जा संयंत्रों की स्थापना पर सब्सिडी देता है।">Subsidizes the installation of standalone solar water pumps and grid-connected renewable power plants for farmers to ensure energy security.</span>
+            </li>
+            <li>
+              <strong><a href="https://agriinfra.dac.gov.in/?utm_source=gemini" data-en="Agriculture Infrastructure Fund (AIF)" data-hi="कृषि अवसंरचना कोष (एआईएफ)">Agriculture Infrastructure Fund (AIF)</a>:</strong>
+              <span data-en="Provides medium to long-term debt financing facilities (with interest subvention) for post-harvest management infrastructure and community farming assets." data-hi="फसल कटाई के बाद प्रबंधन अवसंरचना और सामुदायिक कृषि परिसंपत्तियों के लिए ब्याज सहायता सहित मध्यम से दीर्घकालिक ऋण सुविधा प्रदान करता है।">Provides medium to long-term debt financing facilities (with interest subvention) for post-harvest management infrastructure and community farming assets.</span>
+            </li>
+          </ol>
+
+          <h3 data-en="• Business Loans, Grants & Subsidies" data-hi="• व्यावसायिक ऋण, अनुदान और सब्सिडी">• Business Loans, Grants &amp; Subsidies</h3>
+          <ol>
+            <li>
+              <strong><a href="https://www.mudra.org.in/?utm_source=gemini" data-en="Pradhan Mantri MUDRA Yojana (PMMY)" data-hi="प्रधानमंत्री मुद्रा योजना (पीएमएमवाई)">Pradhan Mantri MUDRA Yojana (PMMY)</a>:</strong>
+              <span data-en="Offers collateral-free loans up to ₹10 lakh to non-corporate, non-farm small and micro-enterprises through commercial banks and NBFCs." data-hi="वाणिज्यिक बैंकों और एनबीएफसी के माध्यम से गैर-कॉर्पोरेट, गैर-कृषि छोटे और सूक्ष्म उद्यमों को ₹10 लाख तक के बिना जमानत वाले ऋण प्रदान करती है।">Offers collateral-free loans up to ₹10 lakh to non-corporate, non-farm small and micro-enterprises through commercial banks and NBFCs.</span>
+            </li>
+            <li>
+              <strong><a href="https://www.kviconline.gov.in/pmegpeportal/pmegphome/index.jsp?utm_source=gemini" data-en="Prime Minister’s Employment Generation Programme (PMEGP)" data-hi="प्रधानमंत्री रोजगार सृजन कार्यक्रम (पीएमईजीपी)">Prime Minister’s Employment Generation Programme (PMEGP)</a>:</strong>
+              <span data-en="A credit-linked subsidy program aimed at generating employment opportunities in rural and urban areas by funding the establishment of micro-enterprises." data-hi="सूक्ष्म उद्यमों की स्थापना के लिए वित्तपोषण देकर ग्रामीण और शहरी क्षेत्रों में रोजगार के अवसर पैदा करने हेतु ऋण-संबद्ध सब्सिडी कार्यक्रम।">A credit-linked subsidy program aimed at generating employment opportunities in rural and urban areas by funding the establishment of micro-enterprises.</span>
+            </li>
+            <li>
+              <strong><a href="https://www.standupmitra.in/?utm_source=gemini" data-en="Stand-Up India" data-hi="स्टैंड-अप इंडिया">Stand-Up India</a>:</strong>
+              <span data-en="Facilitates bank loans between ₹10 lakh and ₹1 crore to at least one SC/ST borrower and one woman borrower per bank branch to set up a greenfield enterprise in manufacturing, services, or trading." data-hi="प्रत्येक बैंक शाखा में कम से कम एक अनुसूचित जाति/जनजाति के उधारकर्ता और एक महिला उधारकर्ता को विनिर्माण, सेवा या व्यापार में नया उद्यम स्थापित करने हेतु ₹10 लाख से ₹1 करोड़ तक का बैंक ऋण उपलब्ध कराता है।">Facilitates bank loans between ₹10 lakh and ₹1 crore to at least one SC/ST borrower and one woman borrower per bank branch to set up a greenfield enterprise in manufacturing, services, or trading.</span>
+            </li>
+            <li>
+              <strong><a href="https://seedfund.startupindia.gov.in/?utm_source=gemini" data-en="Startup India Seed Fund Scheme" data-hi="स्टार्टअप इंडिया सीड फंड योजना">Startup India Seed Fund Scheme</a>:</strong>
+              <span data-en="Provides early-stage startups with financial assistance for proof of concept, prototype development, product trials, and commercialization." data-hi="प्रारंभिक चरण के स्टार्टअप को अवधारणा प्रमाण, प्रोटोटाइप विकास, उत्पाद परीक्षण और व्यावसायीकरण के लिए वित्तीय सहायता प्रदान करती है।">Provides early-stage startups with financial assistance for proof of concept, prototype development, product trials, and commercialization.</span>
+            </li>
+          </ol>
+
+          </div>
+        </div>
+      </details>
+
+      <section class="field-guide-panel">
+        <div class="section-head">
+          <h2 data-en="A simple field-ready checklist" data-hi="खेत के लिए एक सरल चेकलिस्ट">A simple field-ready checklist</h2>
+          <p data-en="A few regular checks can help you spot problems early and make more informed farm decisions." data-hi="कुछ नियमित जांच से समस्याओं को जल्दी पहचानने और खेती के बेहतर फैसले लेने में मदद मिल सकती है।">A few regular checks can help you spot problems early and make more informed farm decisions.</p>
+        </div>
+        <div class="field-guide-grid">
+          <article class="field-guide-card">
+            <div class="field-guide-icon" aria-hidden="true">🪴</div>
+            <h3 data-en="Start with the soil" data-hi="मिट्टी से शुरुआत करें">Start with the soil</h3>
+            <p data-en="Check soil condition and choose nutrients based on a soil test, not guesswork." data-hi="मिट्टी की जांच करें और अंदाज के बजाय मिट्टी परीक्षण के आधार पर पोषक तत्व चुनें।">Check soil condition and choose nutrients based on a soil test, not guesswork.</p>
+          </article>
+          <article class="field-guide-card">
+            <div class="field-guide-icon" aria-hidden="true">💧</div>
+            <h3 data-en="Plan water wisely" data-hi="समझदारी से पानी की योजना बनाएं">Plan water wisely</h3>
+            <p data-en="Match watering to crop needs and local conditions to avoid waste or stress." data-hi="पानी की बर्बादी या फसल पर तनाव से बचने के लिए सिंचाई को फसल की जरूरत और स्थानीय परिस्थितियों के अनुसार रखें।">Match watering to crop needs and local conditions to avoid waste or stress.</p>
+          </article>
+          <article class="field-guide-card">
+            <div class="field-guide-icon" aria-hidden="true">🔎</div>
+            <h3 data-en="Check crops regularly" data-hi="फसलों की नियमित जांच करें">Check crops regularly</h3>
+            <p data-en="Look for unusual spots, insects, or wilting early; ask an expert before treatment." data-hi="असामान्य धब्बों, कीटों या मुरझाने के लक्षणों को जल्दी पहचानें; उपचार से पहले विशेषज्ञ से सलाह लें।">Look for unusual spots, insects, or wilting early; ask an expert before treatment.</p>
+          </article>
+        </div>
+        <a class="field-guide-link" href="index.html#contact"><span data-en="Have a question about your field? Talk to an expert" data-hi="अपने खेत के बारे में सवाल है? विशेषज्ञ से बात करें">Have a question about your field? Talk to an expert</span> <span aria-hidden="true">→</span></a>
+      </section>
+
+      <a class="back-link" href="index.html#services" data-en="Back to Home" data-hi="मुखपृष्ठ पर वापस जाएं">Back to Home</a>
+    </main>
+    <script>
+      const languageToggle = document.getElementById('language-toggle');
+      const backLink = document.querySelector('.back-link');
+      const fieldGuideLink = document.querySelector('.field-guide-link');
+      let isHindi = new URLSearchParams(window.location.search).get('lang') === 'hi';
+
+      function setLanguage(useHindi) {
+        isHindi = useHindi;
+        document.querySelectorAll('[data-en][data-hi]').forEach((element) => {
+          element.textContent = isHindi ? element.dataset.hi : element.dataset.en;
+        });
+        document.documentElement.lang = isHindi ? 'hi' : 'en';
+        document.title = isHindi ? 'किसान साथी | योजना मार्गदर्शन' : 'Kisaan Sathi | Scheme Guidance';
+        languageToggle.textContent = isHindi ? 'English' : 'हिंदी';
+        languageToggle.setAttribute('aria-label', isHindi ? 'Switch to English' : 'Switch to Hindi');
+        if (window.kisaanSathiRefreshThemeLabel) {
+          window.kisaanSathiRefreshThemeLabel();
+        }
+        backLink.href = isHindi ? 'index.html?lang=hi#services' : 'index.html#services';
+        fieldGuideLink.href = isHindi ? 'index.html?lang=hi#contact' : 'index.html#contact';
+      }
+
+      languageToggle.addEventListener('click', () => {
+        window.kisaanSathiLanguageTransition(languageToggle, () => setLanguage(!isHindi));
+      });
+      setLanguage(isHindi);
+    </script>
+    <script src="theme.js"></script>
+    <script src="agri-assistant.js"></script>
+  </body>
+</html>
