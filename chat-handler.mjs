@@ -4,6 +4,10 @@ const maxMessages = 10;
 const rateLimitWindow = 60_000;
 const rateLimitRequests = 12;
 const rateLimits = new Map();
+const supportedChatLanguages = new Set([
+  'en', 'as', 'bn', 'brx', 'doi', 'gu', 'hi', 'kn', 'ks', 'kok', 'mai',
+  'ml', 'mni', 'mr', 'ne', 'or', 'pa', 'sa', 'sat', 'sd', 'ta', 'te', 'ur',
+]);
 
 const agricultureInstructions = `You are Kisaan Sathi, a careful agricultural information assistant for farmers.
 Answer only questions related to agriculture, crops, soil, irrigation, pests, farm practices, and agricultural support programs. If a question is unrelated, politely redirect the user to agriculture.
@@ -63,7 +67,7 @@ function validateChatPayload(payload) {
     !Array.isArray(payload.messages) ||
     payload.messages.length < 1 ||
     payload.messages.length > maxMessages ||
-    !['en', 'hi'].includes(payload.language)
+    !supportedChatLanguages.has(payload.language)
   ) {
     return null;
   }
@@ -143,6 +147,31 @@ export async function handleChatRequest(request, { clientId } = {}) {
   }
 
   const model = process.env.GEMINI_MODEL || 'gemini-2.5-flash';
+  const languageNames = {
+    en: 'English',
+    as: 'Assamese',
+    bn: 'Bengali',
+    brx: 'Bodo',
+    doi: 'Dogri',
+    gu: 'Gujarati',
+    hi: 'Hindi',
+    kn: 'Kannada',
+    ks: 'Kashmiri',
+    kok: 'Konkani',
+    mai: 'Maithili',
+    ml: 'Malayalam',
+    mni: 'Manipuri (Meitei)',
+    mr: 'Marathi',
+    ne: 'Nepali',
+    or: 'Odia',
+    pa: 'Punjabi',
+    sa: 'Sanskrit',
+    sat: 'Santali',
+    sd: 'Sindhi',
+    ta: 'Tamil',
+    te: 'Telugu',
+    ur: 'Urdu',
+  };
   let upstreamResponse;
   try {
     upstreamResponse = await fetch(
@@ -156,7 +185,7 @@ export async function handleChatRequest(request, { clientId } = {}) {
         body: JSON.stringify({
           systemInstruction: {
             parts: [{
-              text: `${agricultureInstructions}\nRespond in ${chat.language === 'hi' ? 'Hindi' : 'English'}.`,
+              text: `${agricultureInstructions}\nRespond in ${languageNames[chat.language]}.`,
             }],
           },
           contents: chat.messages,

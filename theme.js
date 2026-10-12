@@ -47,6 +47,46 @@
     }, 260);
   };
 
+  const settingsMenu = document.querySelector('.settings-menu');
+  const settingsSummary = settingsMenu?.querySelector('summary');
+  const settingsLabel = settingsMenu?.querySelector('.settings-menu-label');
+  const refreshSettingsLabel = () => {
+    const isHindi = document.documentElement.lang === 'hi';
+    if (settingsLabel) {
+      settingsLabel.textContent = isHindi ? 'सेटिंग्स' : 'Settings';
+    }
+    settingsSummary?.setAttribute(
+      'aria-label',
+      isHindi ? 'भाषा और दिखावट सेटिंग्स' : 'Language and appearance settings'
+    );
+  };
+  refreshSettingsLabel();
+
+  document.addEventListener('click', (event) => {
+    if (!settingsMenu) {
+      return;
+    }
+
+    if (event.target.closest('#language-toggle')) {
+      window.setTimeout(refreshSettingsLabel, 320);
+    }
+
+    if (event.target.closest('.settings-menu-panel button')) {
+      window.setTimeout(() => {
+        settingsMenu.open = false;
+      }, 0);
+    } else if (settingsMenu.open && !settingsMenu.contains(event.target)) {
+      settingsMenu.open = false;
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && settingsMenu?.open) {
+      settingsMenu.open = false;
+      settingsSummary?.focus();
+    }
+  });
+
   const pageLoader = document.querySelector('.page-loader');
   if (pageLoader) {
     let loaderHidden = false;

@@ -3,5 +3,19 @@
     "api/**/*": {
       "maxDuration": 60
     }
-  }
+  },
+  "rewrites": [
+    {
+      "source": "/server.mjs",
+      "destination": "/404.html"
+    },
+    {
+      "source": "/chat-handler.mjs",
+      "destination": "/404.html"
+    },
+    {
+      "source": "/translation-handler.mjs",
+      "destination": "/404.html"
+    }
+  ]
 }

@@ -90,8 +90,17 @@
     <main class="page-card">
       <div class="toolbar">
         <div class="icon" aria-hidden="true">💧</div>
-        <button class="language-toggle" id="language-toggle" type="button" aria-label="Switch to Hindi">हिंदी</button>
-        <button class="theme-toggle" type="button">Dark Mode</button>
+        <details class="settings-menu">
+          <summary aria-label="Language and appearance settings">
+            <span aria-hidden="true">⚙</span>
+            <span class="settings-menu-label">Settings</span>
+            <span class="settings-menu-chevron" aria-hidden="true">▾</span>
+          </summary>
+          <div class="settings-menu-panel">
+            <button class="language-toggle" id="language-toggle" type="button" aria-label="Switch to Hindi">हिंदी</button>
+            <button class="theme-toggle" type="button">Dark Mode</button>
+          </div>
+        </details>
       </div>
       <h1 data-en="Irrigation Support" data-hi="सिंचाई सहायता">Irrigation Support</h1>
       <p data-en="Thoughtful irrigation planning helps crops get the water they need while reducing waste and protecting soil health." data-hi="सोच-समझकर बनाई गई सिंचाई योजना फसलों को आवश्यक पानी देती है, पानी की बर्बादी घटाती है और मिट्टी के स्वास्थ्य की रक्षा करती है।">Thoughtful irrigation planning helps crops get the water they need while reducing waste and protecting soil health.</p>
@@ -155,6 +164,7 @@
       setLanguage(isHindi);
     </script>
     <script src="theme.js"></script>
+    <script src="language-manager.js"></script>
     <script src="agri-assistant.js"></script>
   </body>
 </html>

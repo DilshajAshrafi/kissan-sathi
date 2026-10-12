@@ -194,8 +194,17 @@
     <div class="page-loader" aria-hidden="true"><span class="page-loader-mark">🌾</span></div>
     <main class="success-card" aria-live="polite">
       <div class="success-toolbar">
-        <button class="language-toggle" id="language-toggle" type="button" aria-label="Switch to Hindi">हिंदी</button>
-        <button class="theme-toggle" type="button">Dark Mode</button>
+        <details class="settings-menu">
+          <summary aria-label="Language and appearance settings">
+            <span aria-hidden="true">⚙</span>
+            <span class="settings-menu-label">Settings</span>
+            <span class="settings-menu-chevron" aria-hidden="true">▾</span>
+          </summary>
+          <div class="settings-menu-panel">
+            <button class="language-toggle" id="language-toggle" type="button" aria-label="Switch to Hindi">हिंदी</button>
+            <button class="theme-toggle" type="button">Dark Mode</button>
+          </div>
+        </details>
       </div>
       <div class="success-icon" aria-hidden="true">
         <svg class="success-check" viewBox="0 0 32 32" focusable="false">
@@ -230,6 +239,7 @@
       </div>
     </section>
     <script src="theme.js"></script>
+    <script src="language-manager.js"></script>
     <script>
       const languageToggle = document.getElementById('language-toggle');
       const homeLink = document.querySelector('.success-card .btn');

@@ -320,8 +320,7 @@
     gap: 8px;
   }
 
-  .agri-assistant-actions > #language-toggle,
-  .agri-assistant-actions > .theme-toggle,
+  .agri-assistant-actions > .settings-menu,
   .agri-assistant-actions > .agri-assistant-call,
   .agri-assistant-actions > .nav-action,
   .agri-assistant-actions > .agri-assistant-launcher {
@@ -329,6 +328,17 @@
     min-width: 0;
     justify-content: center;
     margin: 0;
+  }
+
+  .agri-assistant-actions > .settings-menu > summary {
+    width: 100%;
+  }
+
+  .settings-menu-panel {
+    right: auto;
+    left: 0;
+    width: min(220px, calc(100vw - 32px));
+    min-width: 0;
   }
 
   .agri-assistant-call,

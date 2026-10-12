@@ -15,6 +15,12 @@
   force = true
 
 [[redirects]]
+  from = "/translation-handler.mjs"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
   from = "/package.json"
   to = "/404.html"
   status = 404
@@ -35,4 +41,9 @@
 [[redirects]]
   from = "/api/chat"
   to = "/.netlify/functions/chat"
+  status = 200
+
+[[redirects]]
+  from = "/api/translate"
+  to = "/.netlify/functions/translate"
   status = 200

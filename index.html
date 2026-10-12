@@ -1675,10 +1675,17 @@
           <a href="#contact">Contact</a>
         </nav>
 
-        <button class="language-toggle" id="language-toggle" type="button" aria-label="Switch to Hindi">
-          हिंदी
-        </button>
-        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch theme">Dark Mode</button>
+        <details class="settings-menu">
+          <summary aria-label="Language and appearance settings">
+            <span aria-hidden="true">⚙</span>
+            <span class="settings-menu-label">Settings</span>
+            <span class="settings-menu-chevron" aria-hidden="true">▾</span>
+          </summary>
+          <div class="settings-menu-panel">
+            <button class="language-toggle" id="language-toggle" type="button" aria-label="Switch to Hindi">हिंदी</button>
+            <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch theme">Dark Mode</button>
+          </div>
+        </details>
         <a class="nav-action" href="tel:+918081392456">Call Now</a>
       </div>
     </header>
@@ -2324,7 +2331,10 @@
       document.querySelectorAll('.feature-detail-link').forEach((featureLink) => {
         featureLink.addEventListener('click', () => {
           const destination = featureLink.getAttribute('href');
-          featureLink.href = `${destination}?lang=${isHindi ? 'hi' : 'en'}`;
+          const currentLanguage = window.kisaanSathiCurrentLanguage?.() || (isHindi ? 'hi' : 'en');
+          featureLink.href = currentLanguage === 'en'
+            ? destination
+            : `${destination}?lang=${encodeURIComponent(currentLanguage)}`;
         });
       });
 
@@ -2351,6 +2361,7 @@
       }
     </script>
     <script src="theme.js"></script>
+    <script src="language-manager.js"></script>
     <script src="agri-assistant.js"></script>
   </body>
 </html>

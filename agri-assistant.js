@@ -58,8 +58,8 @@
     },
   };
 
-  const language = () => document.documentElement.lang === 'hi' ? 'hi' : 'en';
-  const text = (key) => translations[language()][key];
+  const language = () => document.documentElement.lang || 'en';
+  const text = (key) => translations[language()]?.[key] || translations.en[key];
   const element = (tag, className, content) => {
     const node = document.createElement(tag);
     if (className) {
@@ -126,7 +126,7 @@
   panel.append(header, messagesContainer, form, disclaimer);
   const toolbar = document.querySelector('.site-header .nav, .guide-toolbar, .toolbar, .success-toolbar');
   const actions = element('div', 'agri-assistant-actions');
-  const toolbarControls = toolbar?.querySelectorAll('#language-toggle, .theme-toggle, .nav-action') || [];
+  const toolbarControls = toolbar?.querySelectorAll('.settings-menu, .nav-action') || [];
   toolbarControls.forEach((control) => actions.append(control));
   if (!actions.querySelector('a[href^="tel:"]')) {
     const callLink = element('a', 'agri-assistant-call', text('callNow'));
@@ -181,6 +181,11 @@
     disclaimer.textContent = text('disclaimer');
     if (!conversation.length) {
       renderWelcome();
+    }
+    if (window.kisaanSathiRetranslateCurrentContent) {
+      window.kisaanSathiRetranslateCurrentContent().catch((error) => {
+        console.error('Could not refresh translated assistant labels:', error.message);
+      });
     }
   }
 

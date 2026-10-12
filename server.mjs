@@ -5,6 +5,7 @@ import { Readable } from 'node:stream';
 import { extname, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { handleChatRequest } from './chat-handler.mjs';
+import { handleTranslationRequest } from './translation-handler.mjs';
 
 const rootDirectory = fileURLToPath(new URL('.', import.meta.url));
 const port = Number(process.env.PORT || 3000);
@@ -55,6 +56,30 @@ async function handleChat(request, response) {
   }
 }
 
+async function handleTranslation(request, response) {
+  try {
+    const headers = new Headers();
+    for (const [name, value] of Object.entries(request.headers)) {
+      if (value !== undefined) {
+        headers.set(name, Array.isArray(value) ? value.join(', ') : value);
+      }
+    }
+    const url = new URL(request.url || '/api/translate', `http://${request.headers.host || 'localhost'}`);
+    const webRequest = new Request(url, {
+      method: request.method,
+      headers,
+      body: Readable.toWeb(request),
+      duplex: 'half',
+    });
+    const result = await handleTranslationRequest(webRequest, { clientId: request.socket.remoteAddress });
+    response.writeHead(result.status, Object.fromEntries(result.headers.entries()));
+    response.end(Buffer.from(await result.arrayBuffer()));
+  } catch (error) {
+    console.error('Could not handle translation request:', error.message);
+    sendJson(response, 500, { error: 'The translation service could not process this request.' });
+  }
+}
+
 async function serveStaticFile(request, response, pathname) {
   let decodedPath;
   try {
@@ -70,8 +95,10 @@ async function serveStaticFile(request, response, pathname) {
   const privatePaths = [
     '/server.mjs',
     '/chat-handler.mjs',
+    '/translation-handler.mjs',
     '/package.json',
     '/api/chat.js',
+    '/api/translate.js',
     '/netlify',
     '/.git',
     '/node_modules',
@@ -139,13 +166,17 @@ const server = createServer(async (request, response) => {
     return;
   }
 
-  if (requestUrl.pathname === '/api/chat') {
+  if (requestUrl.pathname === '/api/chat' || requestUrl.pathname === '/api/translate') {
     if (request.method !== 'POST') {
       response.writeHead(405, { allow: 'POST' });
       response.end('Method not allowed');
       return;
     }
-    await handleChat(request, response);
+    if (requestUrl.pathname === '/api/translate') {
+      await handleTranslation(request, response);
+    } else {
+      await handleChat(request, response);
+    }
     return;
   }
 

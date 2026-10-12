@@ -232,8 +232,17 @@
     <main class="guide-card">
       <div class="guide-toolbar">
         <div class="guide-icon" aria-hidden="true">📄</div>
-        <button class="language-toggle" id="language-toggle" type="button" aria-label="Switch to Hindi">हिंदी</button>
-        <button class="theme-toggle" type="button">Dark Mode</button>
+        <details class="settings-menu">
+          <summary aria-label="Language and appearance settings">
+            <span aria-hidden="true">⚙</span>
+            <span class="settings-menu-label">Settings</span>
+            <span class="settings-menu-chevron" aria-hidden="true">▾</span>
+          </summary>
+          <div class="settings-menu-panel">
+            <button class="language-toggle" id="language-toggle" type="button" aria-label="Switch to Hindi">हिंदी</button>
+            <button class="theme-toggle" type="button">Dark Mode</button>
+          </div>
+        </details>
       </div>
       <h1 data-en="Scheme Guidance" data-hi="योजना मार्गदर्शन">Scheme Guidance</h1>
 
@@ -411,6 +420,7 @@
       setLanguage(isHindi);
     </script>
     <script src="theme.js"></script>
+    <script src="language-manager.js"></script>
     <script src="agri-assistant.js"></script>
   </body>
 </html>
