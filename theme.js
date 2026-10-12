@@ -119,6 +119,16 @@
       return;
     }
 
+    const selectedLanguage = window.kisaanSathiCurrentLanguage?.();
+    if (
+      selectedLanguage &&
+      selectedLanguage !== 'en' &&
+      (destination.pathname === '/' || destination.pathname.endsWith('/index.html'))
+    ) {
+      destination.searchParams.set('lang', selectedLanguage);
+      link.href = destination.href;
+    }
+
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       return;
     }

@@ -60,6 +60,7 @@
   };
 
   const menu = document.querySelector('.settings-menu');
+  const managerScriptUrl = document.currentScript?.src;
   const panel = menu?.querySelector('.settings-menu-panel');
   const summary = menu?.querySelector('summary');
   const oldLanguageToggle = panel?.querySelector('#language-toggle');
@@ -91,7 +92,7 @@
   panel.append(status);
 
   let activeLanguage = document.documentElement.lang === 'hi' ? 'hi' : 'en';
-  let translationCache = new Map();
+  const catalogPromises = new Map();
   let translationRecords = [];
 
   function setSettingsLabels(language) {
@@ -172,57 +173,45 @@
     return records;
   }
 
-  async function translateTexts(texts, language) {
-    const uniqueTexts = [...new Set(texts.filter((text) => /[A-Za-z]/.test(text)))];
-    const missing = uniqueTexts.filter((text) => !translationCache.has(`${language}\u0000${text}`));
-    const chunks = [];
-    let chunk = [];
-    let chunkLength = 0;
-    missing.forEach((text) => {
-      if (chunk.length >= 35 || chunkLength + text.length > 5000) {
-        chunks.push(chunk);
-        chunk = [];
-        chunkLength = 0;
-      }
-      chunk.push(text);
-      chunkLength += text.length;
-    });
-    if (chunk.length) {
-      chunks.push(chunk);
+  function loadCatalog(language) {
+    if (window.kisaanSathiTranslations?.[language]) {
+      return Promise.resolve(window.kisaanSathiTranslations[language]);
+    }
+    if (catalogPromises.has(language)) {
+      return catalogPromises.get(language);
     }
 
-    let nextChunk = 0;
-    async function translateWorker() {
-      while (nextChunk < chunks.length) {
-        const current = chunks[nextChunk];
-        nextChunk += 1;
-        const response = await fetch('/api/translate', {
-          method: 'POST',
-          headers: { 'content-type': 'application/json' },
-          body: JSON.stringify({ language, texts: current }),
-        });
-        const result = await response.json().catch(() => ({}));
-        if (!response.ok) {
-          throw new Error(result.error || 'Translation service is unavailable.');
+    const catalogUrl = new URL(`translations/${language}.js`, managerScriptUrl);
+    const loading = new Promise((resolve, reject) => {
+      const script = document.createElement('script');
+      script.src = catalogUrl.href;
+      script.async = true;
+      script.onload = () => {
+        const catalog = window.kisaanSathiTranslations?.[language];
+        if (!catalog) {
+          reject(new Error(`The ${language} translation catalog is invalid.`));
+          return;
         }
-        if (!Array.isArray(result.translations) || result.translations.length !== current.length) {
-          throw new Error('The translation service returned an incomplete result.');
-        }
-        current.forEach((source, index) => {
-          if (typeof result.translations[index] !== 'string') {
-            throw new Error('The translation service returned invalid text.');
-          }
-          translationCache.set(`${language}\u0000${source}`, result.translations[index]);
-        });
-      }
-    }
-    await Promise.all(Array.from({ length: Math.min(3, chunks.length) }, translateWorker));
+        resolve(catalog);
+      };
+      script.onerror = () => reject(new Error(`Could not load the ${language} translation catalog.`));
+      document.head.append(script);
+    });
+    catalogPromises.set(language, loading);
+    return loading;
   }
 
-  function applyCachedTranslations(records, language) {
+  function applyCatalog(records, catalog) {
     records.forEach((record) => {
-      const translated = translationCache.get(`${language}\u0000${record.original}`);
-      if (translated) {
+      const normalizedSource = record.original.trim().replace(/\s+/g, ' ');
+      let translated = catalog[record.original] ?? catalog[normalizedSource];
+      if (typeof translated !== 'string') {
+        const caseInsensitiveKey = Object.keys(catalog).find(
+          (source) => source.toLowerCase() === normalizedSource.toLowerCase()
+        );
+        translated = caseInsensitiveKey ? catalog[caseInsensitiveKey] : undefined;
+      }
+      if (typeof translated === 'string') {
         record.write(translated);
       }
     });
@@ -233,8 +222,8 @@
       return;
     }
     const records = collectRecords();
-    await translateTexts(records.map((record) => record.original), activeLanguage);
-    applyCachedTranslations(records, activeLanguage);
+    const catalog = await loadCatalog(activeLanguage);
+    applyCatalog(records, catalog);
   }
 
   function restoreEnglish(records) {
@@ -267,6 +256,7 @@
   async function selectLanguage(language) {
     setStatus('');
     selector.disabled = true;
+    const previousLanguage = activeLanguage;
     try {
       await prepareEnglish();
       if (language === 'hi') {
@@ -275,36 +265,41 @@
         selector.value = 'hi';
         localStorage.setItem('kisaanSathiLanguage', 'hi');
         setSettingsLabels('hi');
+        document.documentElement.dispatchEvent(new Event('languagechange'));
         return;
       }
       if (language === 'en') {
         activeLanguage = 'en';
         localStorage.setItem('kisaanSathiLanguage', 'en');
+        document.documentElement.dispatchEvent(new Event('languagechange'));
         return;
       }
 
-      let records = collectRecords();
-      const texts = records.map((record) => record.original);
-      await translateTexts(texts, language);
+      const catalog = await loadCatalog(language);
+      const records = collectRecords();
       document.documentElement.lang = language;
       setSettingsLabels(language);
       if (window.kisaanSathiRefreshThemeLabel) {
         window.kisaanSathiRefreshThemeLabel();
       }
-      records = collectRecords();
-      await translateTexts(records.map((record) => record.original), language);
-      applyCachedTranslations(records, language);
+      applyCatalog(records, catalog);
       activeLanguage = language;
       selector.value = language;
       localStorage.setItem('kisaanSathiLanguage', language);
       document.documentElement.dispatchEvent(new Event('languagechange'));
-      window.setTimeout(() => {
-        retranslateCurrentContent()
-          .catch((error) => setStatus(error.message));
-      }, 0);
+      await retranslateCurrentContent();
     } catch (error) {
-      selector.value = activeLanguage;
-      setSettingsLabels(activeLanguage);
+      activeLanguage = previousLanguage;
+      selector.value = previousLanguage;
+      if (previousLanguage === 'hi') {
+        await waitForLegacyLanguageToggle();
+      } else if (previousLanguage !== 'en') {
+        const previousCatalog = await loadCatalog(previousLanguage);
+        document.documentElement.lang = previousLanguage;
+        applyCatalog(collectRecords(), previousCatalog);
+      }
+      localStorage.setItem('kisaanSathiLanguage', previousLanguage);
+      setSettingsLabels(previousLanguage);
       setStatus(`Could not load this language. ${error.message}`);
     } finally {
       selector.disabled = false;
@@ -338,7 +333,9 @@
     if (event.target.closest('.theme-toggle') && activeLanguage !== 'en' && activeLanguage !== 'hi') {
       window.setTimeout(() => {
         const records = collectRecords();
-        applyCachedTranslations(records, activeLanguage);
+        loadCatalog(activeLanguage)
+          .then((catalog) => applyCatalog(records, catalog))
+          .catch((error) => setStatus(error.message));
       }, 50);
     }
   });

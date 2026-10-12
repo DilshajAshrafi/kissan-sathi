@@ -2349,7 +2349,12 @@
 
         formFrame.addEventListener('load', () => {
           if (submissionPending) {
-            window.location.href = 'request-sent.html';
+            const language = window.kisaanSathiCurrentLanguage?.() || (isHindi ? 'hi' : 'en');
+            const confirmationUrl = new URL('request-sent.html', window.location.href);
+            if (language !== 'en') {
+              confirmationUrl.searchParams.set('lang', language);
+            }
+            window.location.href = confirmationUrl.href;
           }
         });
 

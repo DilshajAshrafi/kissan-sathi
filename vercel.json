@@ -12,10 +12,6 @@
     {
       "source": "/chat-handler.mjs",
       "destination": "/404.html"
-    },
-    {
-      "source": "/translation-handler.mjs",
-      "destination": "/404.html"
     }
   ]
 }
