@@ -1,0 +1,25 @@
+{
+  "name": "Kisaan Sathi",
+  "short_name": "Kisaan Sathi",
+  "description": "AI Agricultural Assistant for Farmers",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#162a1c",
+  "theme_color": "#1e3a28",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/kisaan-sathi-icon.jpeg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/kisaan-sathi-icon.jpeg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}
