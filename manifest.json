@@ -1,25 +1,27 @@
 {
-  "name": "Kisaan Sathi",
-  "short_name": "Kisaan Sathi",
-  "description": "AI Agricultural Assistant for Farmers",
-  "start_url": "/index.html",
-  "display": "standalone",
   "background_color": "#162a1c",
+  "description": "Kisaan Sathi provides farming guidance, crop health support, irrigation advice, government scheme assistance, and emergency agricultural help.",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "Kissan Sathi",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "Kissan Sathi",
+  "start_url": "/",
   "theme_color": "#1e3a28",
-  "orientation": "portrait",
   "icons": [
     {
-      "src": "/kisaan-sathi-icon.jpeg",
-      "sizes": "512x512",
-      "type": "image/jpeg",
-      "purpose": "any"
+      "src": "https://kissansathiindia.vercel.app/favicon.svg",
+      "type": "image/svg+xml",
+      "isSquare": false,
+      "isPng": false,
+      "isWebp": false,
+      "isJpg": false,
+      "width": 0,
+      "is512x512": false,
+      "is256x256": false,
+      "is192x192": false
     }
   ],
-  "screenshots": [
-    {
-      "src": "/kisaan-sathi-icon.jpeg",
-      "sizes": "512x512",
-      "type": "image/jpeg"
-    }
-  ]
+  "id": "com.dilshaj.kisaansathi"
 }
