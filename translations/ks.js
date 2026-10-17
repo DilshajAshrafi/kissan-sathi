@@ -118,7 +118,6 @@ if (typeof window !== "undefined") {
     "Presentation & Documentation Writer": "پیشکش تہٕ دستاویزات لکھن وول",
     "Gaurav Raj": "گورو راج",
     "Agricultural Researcher": "زرعی محقق",
-    "Mohit Rawat": "موہت راوت",
     "Software & Web Tester": "سافٹ ویئر تہٕ ویب ٹیسٹر",
     "Thank You For Visiting Our Website Project": "امہ ویب سائٹ منصوبہ وزٹ کرنہٕ باپتھ شکریہ",
     "Crop Consultation": "فصل مشاورت",

@@ -137,7 +137,6 @@ if (typeof window !== "undefined") {
     "Dilshaj Ashrafi": "Dilshaj Ashrafi",
     "Abhishek Kumar Singh": "Abhishek Kumar Singh",
     "Gaurav Raj": "Gaurav Raj",
-    "Mohit Rawat": "Mohit Rawat",
     "Thank You For Visiting Our Website Project": "ꯑꯩꯈꯣꯌꯒꯤ ꯋꯦꯕꯁꯥꯏꯠ ꯄ꯭ꯔꯣꯖꯦꯛꯠ ꯌꯦꯡꯕꯤꯕꯗꯒꯤ ꯊꯥꯒꯠꯆꯔꯤ",
     "Good crop decisions begin with understanding your field, local conditions, and goals for the season.": "ꯐꯖꯕ ꯆꯥꯎꯔꯥꯛꯄꯒꯤ ꯋꯥꯔꯦꯞ ꯂꯧꯅꯕ ꯅꯪꯒꯤ ꯂꯩꯄꯥꯛ, ꯃꯐꯝꯒꯤ ꯑꯀꯛꯅꯕ ꯑꯃꯁꯨꯡ ꯆꯥꯎꯔꯥꯛꯄ ꯃꯇꯝꯒꯤ ꯈꯣꯡꯆꯠꯁꯤꯡ ꯈꯪꯕꯗꯒꯤ ꯍꯧꯏ।",
     "Select crops suited to your soil, climate, water access, and growing season.": "ꯅꯪꯒꯤ ꯂꯩꯄꯥꯛ, ꯅꯨꯡꯊꯤꯜ, ꯏꯁꯤ ꯐꯪꯕꯒꯤ ꯃꯑꯣꯡ ꯑꯃꯁꯨꯡ ꯆꯥꯎꯔꯥꯛꯄ ꯃꯇꯝꯒ ꯆꯥꯟꯅꯕ ꯆꯥꯎꯔꯥꯛꯄ ꯈꯟꯕꯤꯌꯨ।",
