@@ -24,6 +24,14 @@
   gap: 8px;
 }
 
+.agri-help-menu { position: relative; }
+.agri-help-summary { display: inline-flex; min-height: 44px; align-items: center; padding: 0 15px; border-radius: 999px; background: linear-gradient(135deg, #347553, #123c2e); box-shadow: 0 8px 20px rgba(18, 60, 46, 0.2); color: #fff; font-size: .88rem; font-weight: 700; cursor: pointer; list-style: none; }
+.agri-help-summary::-webkit-details-marker { display: none; }
+.agri-help-summary::after { content: '▾'; margin-left: 8px; font-size: .75rem; }
+.agri-help-menu[open] .agri-help-summary::after { content: '▴'; }
+.agri-help-panel { position: absolute; top: calc(100% + 8px); right: 0; z-index: 10000; display: grid; gap: 8px; min-width: 190px; padding: 10px; border: 1px solid rgba(32, 74, 49, .14); border-radius: 16px; background: #fffdf7; box-shadow: 0 14px 32px rgba(18, 45, 31, .2); }
+.agri-help-panel .agri-assistant-call, .agri-help-panel .agri-assistant-launcher { width: 100%; justify-content: center; margin: 0; }
+
 .agri-assistant-call {
   display: inline-flex;
   min-height: 44px;
@@ -329,6 +337,10 @@
     justify-content: center;
     margin: 0;
   }
+
+  .agri-assistant-actions > .agri-help-menu { width: 100%; min-width: 0; }
+  .agri-help-summary { width: 100%; justify-content: center; }
+  .agri-help-panel { left: 0; right: auto; width: min(220px, calc(100vw - 32px)); }
 
   .agri-assistant-actions > .settings-menu > summary {
     width: 100%;

@@ -17,6 +17,7 @@ const contentTypes = new Map([
   ['.js', 'text/javascript; charset=utf-8'],
   ['.json', 'application/json; charset=utf-8'],
   ['.mjs', 'text/javascript; charset=utf-8'],
+  ['.mp4', 'video/mp4'],
   ['.png', 'image/png'],
   ['.svg', 'image/svg+xml'],
   ['.webp', 'image/webp'],
@@ -77,7 +78,7 @@ async function serveStaticFile(request, response, pathname) {
     '/node_modules',
   ];
   const containsHiddenPath = requestedPath.split('/').some((segment) => segment.startsWith('.'));
-  if (filePath !== rootDirectory && !filePath.startsWith(`${rootDirectory}${sep}`)) {
+  if (filePath !== rootDirectory && !filePath.startsWith(rootDirectory)) {
     response.writeHead(403);
     response.end('Forbidden');
     return;
@@ -107,18 +108,47 @@ async function serveStaticFile(request, response, pathname) {
     return;
   }
 
-  response.writeHead(200, {
+  const rangeHeader = request.headers.range;
+  let statusCode = 200;
+  let streamOptions;
+  let contentLength = fileInfo.size;
+  const responseHeaders = {
     'content-type': contentType,
-    'content-length': fileInfo.size,
+    'accept-ranges': 'bytes',
     'x-content-type-options': 'nosniff',
     'referrer-policy': 'same-origin',
-  });
+  };
+
+  if (rangeHeader) {
+    const match = /^bytes=(\d*)-(\d*)$/.exec(rangeHeader);
+    if (!match) {
+      response.writeHead(416, { 'content-range': `bytes */${fileInfo.size}` });
+      response.end();
+      return;
+    }
+    const requestedStart = match[1] ? Number(match[1]) : 0;
+    const requestedEnd = match[2] ? Number(match[2]) : fileInfo.size - 1;
+    const start = match[1] ? requestedStart : Math.max(0, fileInfo.size - Number(match[2] || 0));
+    const end = match[1] ? Math.min(requestedEnd, fileInfo.size - 1) : fileInfo.size - 1;
+    if (!Number.isSafeInteger(start) || !Number.isSafeInteger(end) || start < 0 || start > end || start >= fileInfo.size) {
+      response.writeHead(416, { 'content-range': `bytes */${fileInfo.size}` });
+      response.end();
+      return;
+    }
+    statusCode = 206;
+    contentLength = end - start + 1;
+    streamOptions = { start, end };
+    responseHeaders['content-range'] = `bytes ${start}-${end}/${fileInfo.size}`;
+  }
+
+  responseHeaders['content-length'] = contentLength;
+  response.writeHead(statusCode, responseHeaders);
   if (request.method === 'HEAD') {
     response.end();
     return;
   }
 
-  const fileStream = createReadStream(filePath);
+  const fileStream = createReadStream(filePath, streamOptions);
   fileStream.on('error', (error) => {
     console.error(`Could not read static file ${requestedPath}:`, error.message);
     if (!response.headersSent) {

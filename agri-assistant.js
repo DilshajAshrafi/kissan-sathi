@@ -2,6 +2,7 @@
   const translations = {
     en: {
       launcher: 'Ask Agri AI',
+      help: 'Get Help',
       open: 'Open agriculture assistant',
       close: 'Close agriculture assistant',
       callNow: 'Call Now',
@@ -126,15 +127,21 @@
   panel.append(header, messagesContainer, form, disclaimer);
   const toolbar = document.querySelector('.site-header .nav, .guide-toolbar, .toolbar, .success-toolbar');
   const actions = element('div', 'agri-assistant-actions');
-  const toolbarControls = toolbar?.querySelectorAll('.settings-menu, .nav-action') || [];
+  const toolbarControls = toolbar?.querySelectorAll('.settings-menu') || [];
   toolbarControls.forEach((control) => actions.append(control));
-  if (!actions.querySelector('a[href^="tel:"]')) {
-    const callLink = element('a', 'agri-assistant-call', text('callNow'));
-    callLink.href = 'tel:+918081392456';
-    callLink.dataset.assistantCall = 'true';
-    actions.append(callLink);
-  }
-  actions.append(launcher);
+  toolbar?.querySelector('.nav-action')?.remove();
+  const helpMenu = document.createElement('details');
+  helpMenu.className = 'agri-help-menu';
+  const helpSummary = document.createElement('summary');
+  helpSummary.className = 'agri-help-summary';
+  helpSummary.textContent = text('help');
+  const helpPanel = element('div', 'agri-help-panel');
+  const callLink = element('a', 'agri-assistant-call', text('callNow'));
+  callLink.href = 'tel:+918081392456';
+  callLink.dataset.assistantCall = 'true';
+  helpPanel.append(callLink, launcher);
+  helpMenu.append(helpSummary, helpPanel);
+  actions.append(helpMenu);
   if (toolbar) {
     toolbar.append(actions);
   } else {
@@ -166,10 +173,8 @@
 
   function updateLabels() {
     launcherLabel.textContent = text('launcher');
-    const callLink = actions.querySelector('[data-assistant-call]');
-    if (callLink) {
-      callLink.textContent = text('callNow');
-    }
+    callLink.textContent = text('callNow');
+    helpSummary.textContent = text('help');
     launcher.setAttribute('aria-label', text('open'));
     closeButton.setAttribute('aria-label', text('close'));
     panel.setAttribute('aria-label', text('title'));

@@ -66,6 +66,18 @@
       h2 { margin: 30px 0 12px; font-size: 1.3rem; }
       p, li { color: var(--muted); }
       ul { padding-left: 24px; }
+      .intro-lead { font-size: 1.12rem; font-weight: 700; color: var(--green-800); }
+      .irrigation-video { width: 100%; min-height: 260px; margin: 26px 0; display: grid; place-items: center; border: 2px dashed rgba(45, 139, 95, 0.35); border-radius: 20px; background: linear-gradient(135deg, #e7f5eb, #f7fbf8); color: var(--green-800); text-align: center; font-weight: 700; }
+      .service-list { list-style: none; padding: 0; }
+      .service-list li { margin: 14px 0; padding: 16px 18px; border-radius: 16px; background: var(--green-100); }
+      .service-list strong { display: block; margin-bottom: 4px; color: var(--green-900); }
+      .support-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
+      .support-button { display: inline-flex; padding: 13px 20px; border-radius: 999px; background: linear-gradient(135deg, var(--green-600), var(--green-800)); color: var(--white); font-weight: 700; text-decoration: none; }
+      .support-button.secondary { background: var(--green-100); color: var(--green-900); }
+      .contact-details { margin-top: 20px; padding: 18px; border-left: 4px solid var(--green-600); background: #f5faf6; }
+      .contact-details a,
+      :root[data-theme="dark"] .page-card .contact-details a { color: #1b5941 !important; }
+      :root[data-theme="dark"] .page-card .contact-details { background: #20392d; }
       li + li { margin-top: 8px; }
       .back-link {
         display: inline-flex;
@@ -102,17 +114,28 @@
           </div>
         </details>
       </div>
-      <h1 data-en="Irrigation Support" data-hi="सिंचाई सहायता">Irrigation Support</h1>
-      <p data-en="Thoughtful irrigation planning helps crops get the water they need while reducing waste and protecting soil health." data-hi="सोच-समझकर बनाई गई सिंचाई योजना फसलों को आवश्यक पानी देती है, पानी की बर्बादी घटाती है और मिट्टी के स्वास्थ्य की रक्षा करती है।">Thoughtful irrigation planning helps crops get the water they need while reducing waste and protecting soil health.</p>
-      <h2 data-en="Water-smart practices" data-hi="पानी बचाने के तरीके">Water-smart practices</h2>
-      <ul>
-        <li data-en="Check soil moisture and crop growth stage before irrigating." data-hi="सिंचाई से पहले मिट्टी की नमी और फसल की अवस्था जांचें।">Check soil moisture and crop growth stage before irrigating.</li>
-        <li data-en="Irrigate during cooler parts of the day when practical to reduce evaporation." data-hi="संभव हो तो वाष्पीकरण कम करने के लिए दिन के ठंडे समय में सिंचाई करें।">Irrigate during cooler parts of the day when practical to reduce evaporation.</li>
-        <li data-en="Maintain pipes, channels, and pumps to prevent leaks and uneven watering." data-hi="रिसाव और असमान सिंचाई रोकने के लिए पाइप, नालियों और पंपों का रखरखाव करें।">Maintain pipes, channels, and pumps to prevent leaks and uneven watering.</li>
-        <li data-en="Consider drip or sprinkler systems where they suit the crop, field, and budget." data-hi="फसल, खेत और बजट के अनुकूल होने पर ड्रिप या स्प्रिंकलर प्रणाली पर विचार करें।">Consider drip or sprinkler systems where they suit the crop, field, and budget.</li>
+      <h1 data-en="Kisaan Sathi - Irrigation Support">Kisaan Sathi - Irrigation Support</h1>
+      <p class="intro-lead" data-en="Maximizing Every Drop for a Bountiful Harvest">Maximizing Every Drop for a Bountiful Harvest</p>
+      <p>Welcome to the Kisaan Sathi Irrigation Support Center. We understand that timely and efficient watering is the foundation of a successful crop. Our goal is to equip you with the right irrigation techniques to conserve water, maintain optimal soil health, and help your fields thrive.</p>
+      <video class="irrigation-video" controls preload="metadata" aria-label="Ground, soil, and drip irrigation video"><source src="irrigation-video.mp4" type="video/mp4" />Your browser does not support embedded video. <a href="irrigation-video.mp4" download>Download the irrigation video</a>.</video>
+      <h2>Our Irrigation Support Services</h2>
+      <ul class="service-list">
+        <li><strong>Modern Irrigation Setup</strong>Step-by-step guidance on installing highly efficient drip and sprinkler systems. Deliver water directly to the roots, save resources, and significantly reduce weed growth.</li>
+        <li><strong>Soil &amp; Moisture Management</strong>Smart irrigation strategies tailored to your specific soil type (clay, sandy, or loam) to prevent waterlogging, maintain moisture, and keep your land fertile.</li>
+        <li><strong>Maintenance &amp; Troubleshooting</strong>Quick and practical solutions for everyday farming challenges—whether it is a leaking pipe, sudden pressure drop, blocked nozzles, or pump and motor malfunctions.</li>
+        <li><strong>Crop-Specific Watering Schedules</strong>Every crop has different water requirements. We help you design customized irrigation schedules based on the specific crop type and its current growth stage.</li>
       </ul>
-      <p data-en="Water needs vary by crop, soil, weather, and growth stage. Consult a local agriculture or irrigation expert for a schedule suited to your farm." data-hi="पानी की जरूरत फसल, मिट्टी, मौसम और विकास अवस्था के अनुसार बदलती है। अपने खेत के अनुकूल समय-सारणी के लिए स्थानीय कृषि या सिंचाई विशेषज्ञ से सलाह लें।">Water needs vary by crop, soil, weather, and growth stage. Consult a local agriculture or irrigation expert for a schedule suited to your farm.</p>
-      <section class="field-guide-panel">
+      <h2>Why Choose Kisaan Sathi?</h2>
+      <p>We do more than just give advice; we understand the reality of your fields. Our mission is to be your true farming companion—helping you lower your input costs, save water, and maximize your overall farming income.</p>
+      <h2>Facing an irrigation issue? We are here to help:</h2>
+      <div class="support-actions">
+        <a class="support-button" href="index.html#contact">Report an Issue / Help Center</a>
+        <a class="support-button secondary" href="tel:+918081392456">Talk to Our Experts</a>
+      </div>
+      <div class="contact-details">
+        <p><strong>Call Us:</strong> <a href="tel:+918081392456">+91 80813 92456</a></p>
+        <p><strong>WhatsApp:</strong> <a href="https://wa.me/918081392456">+91 80813 92456</a></p>
+      </div>      <section class="field-guide-panel">
         <div class="section-head">
           <h2 data-en="A simple field-ready checklist" data-hi="खेत के लिए एक सरल चेकलिस्ट">A simple field-ready checklist</h2>
           <p data-en="A few regular checks can help you spot problems early and make more informed farm decisions." data-hi="कुछ नियमित जांच से समस्याओं को जल्दी पहचानने और खेती के बेहतर फैसले लेने में मदद मिल सकती है।">A few regular checks can help you spot problems early and make more informed farm decisions.</p>
