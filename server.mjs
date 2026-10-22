@@ -10,6 +10,7 @@ const rootDirectory = fileURLToPath(new URL('.', import.meta.url));
 const port = Number(process.env.PORT || 3000);
 
 const contentTypes = new Map([
+  ['.apk', 'application/vnd.android.package-archive'],
   ['.css', 'text/css; charset=utf-8'],
   ['.html', 'text/html; charset=utf-8'],
   ['.jpeg', 'image/jpeg'],

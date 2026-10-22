@@ -25,7 +25,7 @@
 }
 
 .agri-help-menu { position: relative; }
-.agri-help-summary { display: inline-flex; min-height: 44px; align-items: center; padding: 0 15px; border-radius: 999px; background: linear-gradient(135deg, #347553, #123c2e); box-shadow: 0 8px 20px rgba(18, 60, 46, 0.2); color: #fff; font-size: .88rem; font-weight: 700; cursor: pointer; list-style: none; }
+.agri-help-summary { display: inline-flex; min-height: 44px; align-items: center; padding: 0 15px; border-radius: 999px; background: linear-gradient(135deg, #347553, #123c2e); box-shadow: 0 8px 20px rgba(18, 60, 46, 0.2); color: #fff; font-size: .88rem; font-weight: 700; cursor: pointer; list-style: none; white-space: nowrap; }
 .agri-help-summary::-webkit-details-marker { display: none; }
 .agri-help-summary::after { content: '▾'; margin-left: 8px; font-size: .75rem; }
 .agri-help-menu[open] .agri-help-summary::after { content: '▴'; }

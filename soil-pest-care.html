@@ -77,6 +77,47 @@
         font-weight: 700;
         text-decoration: none;
       }
+      .soil-care-details {
+        margin-top: 14px;
+        border: 1px solid rgba(18, 77, 57, 0.12);
+        border-radius: 16px;
+        background: var(--white);
+      }
+      .soil-care-details summary {
+        padding: 15px 18px;
+        color: var(--green-900);
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .soil-care-content {
+        padding: 0 18px 18px;
+      }
+      .soil-care-content h3 {
+        margin: 18px 0 8px;
+        color: var(--green-900);
+        font-size: 1.05rem;
+      }
+      .soil-care-content p {
+        margin: 10px 0;
+      }
+      .soil-care-content p:last-child {
+        margin-bottom: 0;
+      }
+      .soil-care-warning {
+        padding: 14px 16px;
+        border-left: 4px solid #d9a441;
+        border-radius: 10px;
+        background: #e6cf8e;
+        color: #3b2e13;
+      }
+      :root[data-theme="dark"] .soil-care-details {
+        border-color: rgba(214, 242, 226, 0.14);
+        background: #1e2b23;
+      }
+      :root[data-theme="dark"] .soil-care-warning {
+        background: #5a4a21;
+        color: #fff1c2;
+      }
       @media (prefers-reduced-motion: reduce) {
         *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
       }
@@ -103,37 +144,115 @@
         </details>
       </div>
       <h1 data-en="Soil &amp; Pest Care" data-hi="मिट्टी और कीट देखभाल">Soil &amp; Pest Care</h1>
-      <p data-en="Healthy soil and early pest detection support stronger crops. Regular observation and informed decisions can help reduce crop damage." data-hi="स्वस्थ मिट्टी और कीटों की शीघ्र पहचान से फसल मजबूत होती है। नियमित निरीक्षण और सही जानकारी से फसल का नुकसान कम करने में मदद मिल सकती है।">Healthy soil and early pest detection support stronger crops. Regular observation and informed decisions can help reduce crop damage.</p>
+      <p data-en="Healthy soil and timely pest management support stronger crops, reduce avoidable costs, and protect the environment. Start by observing the field and confirming the likely cause before choosing an action." data-hi="स्वस्थ मिट्टी और समय पर कीट प्रबंधन से फसल मजबूत होती है, अनावश्यक लागत घटती है और पर्यावरण की रक्षा होती है। कोई कदम चुनने से पहले खेत का निरीक्षण करें और संभावित कारण की पुष्टि करें।">Healthy soil and timely pest management support stronger crops, reduce avoidable costs, and protect the environment. Start by observing the field and confirming the likely cause before choosing an action.</p>
       <h2 data-en="Helpful steps" data-hi="उपयोगी कदम">Helpful steps</h2>
       <ul>
-        <li data-en="Use soil testing to understand pH and nutrient levels before choosing inputs." data-hi="इनपुट चुनने से पहले पीएच और पोषक तत्वों का स्तर जानने के लिए मिट्टी की जांच कराएं।">Use soil testing to understand pH and nutrient levels before choosing inputs.</li>
-        <li data-en="Inspect plants regularly for unusual spots, wilting, holes, or visible pests." data-hi="असामान्य धब्बे, मुरझाना, छेद या दिखने वाले कीटों के लिए पौधों का नियमित निरीक्षण करें।">Inspect plants regularly for unusual spots, wilting, holes, or visible pests.</li>
-        <li data-en="Identify the problem before applying pesticides, and follow product labels and local guidance." data-hi="कीटनाशक लगाने से पहले समस्या की पहचान करें और उत्पाद के लेबल व स्थानीय सलाह का पालन करें।">Identify the problem before applying pesticides, and follow product labels and local guidance.</li>
-        <li data-en="Consider crop rotation, field sanitation, and integrated pest management practices." data-hi="फसल चक्र, खेत की स्वच्छता और एकीकृत कीट प्रबंधन के तरीकों पर विचार करें।">Consider crop rotation, field sanitation, and integrated pest management practices.</li>
+        <li data-en="Test soil and, when salinity is suspected, irrigation water; use results and local recommendations to guide inputs." data-hi="मिट्टी की जांच कराएं और लवणता का संदेह हो तो सिंचाई के पानी की भी जांच करें; इनपुट के लिए रिपोर्ट और स्थानीय सलाह अपनाएं।">Test soil and, when salinity is suspected, irrigation water; use results and local recommendations to guide inputs.</li>
+        <li data-en="Protect soil with suitable rotations, crop cover, organic matter, and careful water management." data-hi="उपयुक्त फसल चक्र, मिट्टी के आवरण, जैविक पदार्थ और समझदारी से पानी के प्रबंधन द्वारा मिट्टी की रक्षा करें।">Protect soil with suitable rotations, crop cover, organic matter, and careful water management.</li>
+        <li data-en="Inspect several plants, including both sides of leaves, and confirm the cause before treatment." data-hi="कई पौधों और पत्तियों के दोनों तरफ जांच करें; उपचार से पहले कारण की पुष्टि करें।">Inspect several plants, including both sides of leaves, and confirm the cause before treatment.</li>
+        <li data-en="Use Integrated Pest Management (IPM): prevention and monitoring first, with pesticides only when needed and label-approved." data-hi="एकीकृत कीट प्रबंधन (IPM) अपनाएं: पहले रोकथाम और निगरानी करें; कीटनाशक केवल जरूरत पर और लेबल के अनुसार इस्तेमाल करें।">Use Integrated Pest Management (IPM): prevention and monitoring first, with pesticides only when needed and label-approved.</li>
       </ul>
-      <p data-en="Crop symptoms can have several causes. Share clear photos and details about the crop and location with a qualified agriculture expert before treating an unfamiliar issue." data-hi="फसल के लक्षणों के कई कारण हो सकते हैं। किसी अनजान समस्या का उपचार करने से पहले फसल और स्थान का विवरण तथा स्पष्ट तस्वीरें कृषि विशेषज्ञ को दिखाएं।">Crop symptoms can have several causes. Share clear photos and details about the crop and location with a qualified agriculture expert before treating an unfamiliar issue.</p>
+      <p data-en="Yellow leaves, wilting, or poor growth are not proof of pests: water stress, nutrient problems, weather, and disease can look similar. For an unfamiliar or spreading issue, share clear photos and crop details with a local agricultural extension officer, Krishi Vigyan Kendra (KVK), or qualified agronomist." data-hi="पीली पत्तियां, मुरझाना या कमजोर बढ़त कीट होने का प्रमाण नहीं हैं—पानी की कमी या अधिकता, पोषक तत्वों की समस्या, मौसम और रोग भी ऐसे दिख सकते हैं। अनजान या फैलती समस्या के लिए स्पष्ट तस्वीरें और फसल का विवरण स्थानीय कृषि विस्तार अधिकारी, कृषि विज्ञान केंद्र (KVK) या योग्य कृषि विशेषज्ञ को दिखाएं।">Yellow leaves, wilting, or poor growth are not proof of pests: water stress, nutrient problems, weather, and disease can look similar. For an unfamiliar or spreading issue, share clear photos and crop details with a local agricultural extension officer, Krishi Vigyan Kendra (KVK), or qualified agronomist.</p>
       <section class="field-guide-panel">
         <div class="section-head">
-          <h2 data-en="A simple field-ready checklist" data-hi="खेत के लिए एक सरल चेकलिस्ट">A simple field-ready checklist</h2>
-          <p data-en="A few regular checks can help you spot problems early and make more informed farm decisions." data-hi="कुछ नियमित जांच से समस्याओं को जल्दी पहचानने और खेती के बेहतर फैसले लेने में मदद मिल सकती है।">A few regular checks can help you spot problems early and make more informed farm decisions.</p>
+          <h2 data-en="Soil health and pest care guide" data-hi="मिट्टी के स्वास्थ्य और कीट देखभाल की मार्गदर्शिका">Soil health and pest care guide</h2>
+          <p data-en="Explore practical steps for looking after the soil, spotting crop problems, using IPM, and handling crop-protection products responsibly." data-hi="मिट्टी की देखभाल, फसल की समस्याओं की पहचान, IPM अपनाने और फसल-सुरक्षा उत्पादों के जिम्मेदार उपयोग के व्यावहारिक तरीके जानें।">Explore practical steps for looking after the soil, spotting crop problems, using IPM, and handling crop-protection products responsibly.</p>
         </div>
         <div class="field-guide-grid">
           <article class="field-guide-card">
             <div class="field-guide-icon" aria-hidden="true">🪴</div>
-            <h3 data-en="Start with the soil" data-hi="मिट्टी से शुरुआत करें">Start with the soil</h3>
-            <p data-en="Check soil condition and choose nutrients based on a soil test, not guesswork." data-hi="मिट्टी की जांच करें और अंदाज के बजाय मिट्टी परीक्षण के आधार पर पोषक तत्व चुनें।">Check soil condition and choose nutrients based on a soil test, not guesswork.</p>
+            <h3 data-en="Test before treating" data-hi="उपचार से पहले जांच करें">Test before treating</h3>
+            <p data-en="Use soil and, where needed, water tests to guide amendments and nutrients instead of guessing." data-hi="मिट्टी और जरूरत पड़ने पर पानी की जांच से सुधारक व पोषक तत्व चुनें, अंदाज से नहीं।">Use soil and, where needed, water tests to guide amendments and nutrients instead of guessing.</p>
           </article>
           <article class="field-guide-card">
             <div class="field-guide-icon" aria-hidden="true">💧</div>
-            <h3 data-en="Plan water wisely" data-hi="समझदारी से पानी की योजना बनाएं">Plan water wisely</h3>
-            <p data-en="Match watering to crop needs and local conditions to avoid waste or stress." data-hi="पानी की बर्बादी या फसल पर तनाव से बचने के लिए सिंचाई को फसल की जरूरत और स्थानीय परिस्थितियों के अनुसार रखें।">Match watering to crop needs and local conditions to avoid waste or stress.</p>
+            <h3 data-en="Keep soil covered" data-hi="मिट्टी को ढककर रखें">Keep soil covered</h3>
+            <p data-en="Use suitable crop residues, mulch, cover crops, and rotations to help protect soil and conserve moisture." data-hi="मिट्टी की रक्षा और नमी बचाने के लिए उपयुक्त फसल अवशेष, मल्च, आवरण फसलें और फसल चक्र अपनाएं।">Use suitable crop residues, mulch, cover crops, and rotations to help protect soil and conserve moisture.</p>
           </article>
           <article class="field-guide-card">
             <div class="field-guide-icon" aria-hidden="true">🔎</div>
-            <h3 data-en="Check crops regularly" data-hi="फसलों की नियमित जांच करें">Check crops regularly</h3>
-            <p data-en="Look for unusual spots, insects, or wilting early; ask an expert before treatment." data-hi="असामान्य धब्बों, कीटों या मुरझाने के लक्षणों को जल्दी पहचानें; उपचार से पहले विशेषज्ञ से सलाह लें।">Look for unusual spots, insects, or wilting early; ask an expert before treatment.</p>
+            <h3 data-en="Identify before acting" data-hi="कार्रवाई से पहले पहचानें">Identify before acting</h3>
+            <p data-en="Check multiple plants and look for pests or other causes before choosing a control method." data-hi="नियंत्रण का तरीका चुनने से पहले कई पौधों की जांच करें और कीटों या अन्य कारणों को पहचानें।">Check multiple plants and look for pests or other causes before choosing a control method.</p>
           </article>
         </div>
+        <details class="soil-care-details" open>
+          <summary data-en="What makes soil healthy—and what can go wrong?" data-hi="स्वस्थ मिट्टी की पहचान और उसमें होने वाली समस्याएं">What makes soil healthy—and what can go wrong?</summary>
+          <div class="soil-care-content">
+            <p data-en="Soil supports roots and contains mineral particles, organic matter, water, air, and living organisms. Healthy soil has useful structure and drainage, enough organic matter, balanced nutrients, and a pH and salinity level suitable for the crop." data-hi="मिट्टी जड़ों को सहारा देती है और इसमें खनिज कण, जैविक पदार्थ, पानी, हवा और जीव होते हैं। स्वस्थ मिट्टी में अच्छा ढांचा व जल निकासी, पर्याप्त जैविक पदार्थ, संतुलित पोषक तत्व और फसल के अनुकूल pH व लवणता होती है।">Soil supports roots and contains mineral particles, organic matter, water, air, and living organisms. Healthy soil has useful structure and drainage, enough organic matter, balanced nutrients, and a pH and salinity level suitable for the crop.</p>
+            <ul>
+              <li data-en="Erosion: rain or wind can carry away exposed topsoil. Keep the ground covered and manage runoff; use contour or terrace methods where locally suitable." data-hi="मिट्टी का कटाव: बारिश या हवा खुली ऊपरी मिट्टी बहा या उड़ा सकती है। जमीन ढकी रखें, बहाव संभालें और स्थानीय रूप से उपयुक्त हो तो कंटूर या सीढ़ीदार तरीके अपनाएं।">Erosion: rain or wind can carry away exposed topsoil. Keep the ground covered and manage runoff; use contour or terrace methods where locally suitable.</li>
+              <li data-en="Fertility loss: repeated cropping can deplete nutrients. Test soil, follow recommendations, add suitable well-decomposed organic matter, and rotate crops." data-hi="उर्वरता में कमी: लगातार फसल लेने से पोषक तत्व घट सकते हैं। मिट्टी जांचें, सलाह के अनुसार पोषक तत्व दें, उपयुक्त अच्छी तरह सड़ी जैविक खाद डालें और फसल चक्र अपनाएं।">Fertility loss: repeated cropping can deplete nutrients. Test soil, follow recommendations, add suitable well-decomposed organic matter, and rotate crops.</li>
+              <li data-en="Compaction: machinery or working wet soil can restrict roots and drainage. Avoid unnecessary traffic, especially when soil is wet." data-hi="मिट्टी का सख्त होना: मशीनरी या गीली मिट्टी पर काम करने से जड़ों और जल निकासी पर असर पड़ सकता है। खासकर गीली मिट्टी पर अनावश्यक आवाजाही न करें।">Compaction: machinery or working wet soil can restrict roots and drainage. Avoid unnecessary traffic, especially when soil is wet.</li>
+              <li data-en="Waterlogging or poor drainage: standing water can damage roots. Improve drainage where feasible and avoid over-irrigation." data-hi="जलभराव या खराब निकासी: खड़ा पानी जड़ों को नुकसान पहुंचा सकता है। संभव हो तो जल निकासी सुधारें और जरूरत से ज्यादा सिंचाई से बचें।">Waterlogging or poor drainage: standing water can damage roots. Improve drainage where feasible and avoid over-irrigation.</li>
+              <li data-en="Salinity or unsuitable pH: poor germination, stunting, leaf-edge burn, or nutrient uptake problems may occur. Confirm with soil or water testing before following local advice." data-hi="लवणता या अनुपयुक्त pH: अंकुरण खराब होना, बढ़त रुकना, पत्तियों के किनारे जलना या पोषक तत्व लेने में समस्या हो सकती है। स्थानीय सलाह अपनाने से पहले मिट्टी या पानी की जांच से पुष्टि करें।">Salinity or unsuitable pH: poor germination, stunting, leaf-edge burn, or nutrient uptake problems may occur. Confirm with soil or water testing before following local advice.</li>
+              <li data-en="Low organic matter: soil may crust or hold less water. Where practical, use suitable residues, cover crops, or compost instead of burning residues." data-hi="जैविक पदार्थ की कमी: मिट्टी पर पपड़ी जम सकती है या पानी कम रुक सकता है। जहां संभव हो, अवशेष जलाने के बजाय उपयुक्त अवशेष, आवरण फसल या कम्पोस्ट अपनाएं।">Low organic matter: soil may crust or hold less water. Where practical, use suitable residues, cover crops, or compost instead of burning residues.</li>
+            </ul>
+            <p data-en="A soil test may report pH, electrical conductivity (salinity), organic matter, and available nutrients. Take a representative sample using your local laboratory’s instructions; test unusual spots separately when needed. Do not apply fertiliser, lime, or gypsum solely by guesswork." data-hi="मिट्टी जांच में pH, विद्युत चालकता (लवणता), जैविक पदार्थ और उपलब्ध पोषक तत्व बताए जा सकते हैं। स्थानीय प्रयोगशाला के निर्देशों के अनुसार प्रतिनिधि नमूना लें; जरूरत हो तो असामान्य स्थानों की अलग जांच करें। केवल अंदाज से खाद, चूना या जिप्सम न डालें।">A soil test may report pH, electrical conductivity (salinity), organic matter, and available nutrients. Take a representative sample using your local laboratory’s instructions; test unusual spots separately when needed. Do not apply fertiliser, lime, or gypsum solely by guesswork.</p>
+          </div>
+        </details>
+        <details class="soil-care-details">
+          <summary data-en="Ways to maintain soil health" data-hi="मिट्टी का स्वास्थ्य बनाए रखने के तरीके">Ways to maintain soil health</summary>
+          <div class="soil-care-content">
+            <ul>
+              <li data-en="Test soil through a recognised service; test irrigation water if salinity is suspected." data-hi="मान्यता प्राप्त सेवा से मिट्टी की जांच कराएं; लवणता का संदेह हो तो सिंचाई के पानी की भी जांच कराएं।">Test soil through a recognised service; test irrigation water if salinity is suspected.</li>
+              <li data-en="Base fertiliser and amendment decisions on test results, crop needs, and local recommendations—more fertiliser is not always better." data-hi="खाद और मिट्टी-सुधार का निर्णय जांच रिपोर्ट, फसल की जरूरत और स्थानीय सलाह के अनुसार करें—ज्यादा खाद हमेशा बेहतर नहीं होती।">Base fertiliser and amendment decisions on test results, crop needs, and local recommendations—more fertiliser is not always better.</li>
+              <li data-en="Rotate crop families where possible, and include legumes when suitable for the region and farm." data-hi="संभव हो तो अलग-अलग फसल परिवारों का चक्र अपनाएं और क्षेत्र व खेत के अनुकूल होने पर दलहनी फसलें शामिल करें।">Rotate crop families where possible, and include legumes when suitable for the region and farm.</li>
+              <li data-en="Use suitable residues, mulch, cover crops, or vegetation to reduce erosion and evaporation." data-hi="कटाव और वाष्पीकरण कम करने के लिए उपयुक्त अवशेष, मल्च, आवरण फसल या वनस्पति का उपयोग करें।">Use suitable residues, mulch, cover crops, or vegetation to reduce erosion and evaporation.</li>
+              <li data-en="Irrigate according to crop needs and soil moisture to reduce both drought stress and waterlogging." data-hi="सूखे के तनाव और जलभराव दोनों से बचने के लिए फसल की जरूरत और मिट्टी की नमी के अनुसार सिंचाई करें।">Irrigate according to crop needs and soil moisture to reduce both drought stress and waterlogging.</li>
+              <li data-en="Protect soil life by reducing unnecessary disturbance and avoiding contamination." data-hi="अनावश्यक छेड़छाड़ कम करके और प्रदूषण से बचाकर मिट्टी के जीवों की रक्षा करें।">Protect soil life by reducing unnecessary disturbance and avoiding contamination.</li>
+            </ul>
+          </div>
+        </details>
+        <details class="soil-care-details">
+          <summary data-en="Recognise crop symptoms and use IPM" data-hi="फसल के लक्षण पहचानें और IPM अपनाएं">Recognise crop symptoms and use IPM</summary>
+          <div class="soil-care-content">
+            <p data-en="Crop damage can come from insects, mites, rodents, slugs, nematodes, fungi, bacteria, viruses, weeds, nutrient problems, or water stress. Signs may include holes or chewed leaf edges, curling or sticky leaves, webbing, spots, powdery growth, rotting, wilting, damaged roots or stems, and fruit holes." data-hi="फसल को कीट, माइट, चूहे, स्लग, निमेटोड, फफूंद, बैक्टीरिया, वायरस, खरपतवार, पोषक तत्वों की समस्या या पानी का तनाव नुकसान पहुंचा सकते हैं। लक्षणों में छेद या कुतरी पत्तियां, मुड़ी या चिपचिपी पत्तियां, जाला, धब्बे, पाउडर जैसी परत, सड़न, मुरझाना, जड़ या तने की क्षति और फल में छेद शामिल हो सकते हैं।">Crop damage can come from insects, mites, rodents, slugs, nematodes, fungi, bacteria, viruses, weeds, nutrient problems, or water stress. Signs may include holes or chewed leaf edges, curling or sticky leaves, webbing, spots, powdery growth, rotting, wilting, damaged roots or stems, and fruit holes.</p>
+            <p data-en="Integrated Pest Management (IPM) combines monitoring and prevention with cultural, mechanical, biological, and—only when necessary—chemical controls. The aim is to keep damage at an acceptable level while protecting people, beneficial organisms, and the environment." data-hi="एकीकृत कीट प्रबंधन (IPM) में निगरानी और रोकथाम के साथ सांस्कृतिक, यांत्रिक, जैविक और—केवल जरूरत पड़ने पर—रासायनिक नियंत्रण शामिल हैं। उद्देश्य लोगों, लाभकारी जीवों और पर्यावरण की रक्षा करते हुए नुकसान को स्वीकार्य स्तर पर रखना है।">Integrated Pest Management (IPM) combines monitoring and prevention with cultural, mechanical, biological, and—only when necessary—chemical controls. The aim is to keep damage at an acceptable level while protecting people, beneficial organisms, and the environment.</p>
+            <ul>
+              <li data-en="Monitor and identify: inspect several plants, leaf tops and undersides, stems, and fruits; use traps where suitable." data-hi="निगरानी और पहचान: कई पौधों, पत्तियों के ऊपर व नीचे, तनों और फलों की जांच करें; उपयुक्त होने पर ट्रैप लगाएं।">Monitor and identify: inspect several plants, leaf tops and undersides, stems, and fruits; use traps where suitable.</li>
+              <li data-en="Prevent: use healthy seed or seedlings, clean tools where appropriate, manage weeds, and remove badly affected residues safely." data-hi="रोकथाम: स्वस्थ बीज या पौध, जरूरत पड़ने पर साफ औजार, खरपतवार नियंत्रण और बुरी तरह प्रभावित अवशेषों को सुरक्षित रूप से हटाएं।">Prevent: use healthy seed or seedlings, clean tools where appropriate, manage weeds, and remove badly affected residues safely.</li>
+              <li data-en="Use cultural methods: rotate crops, maintain suitable spacing, avoid excess nitrogen, and manage irrigation." data-hi="सांस्कृतिक तरीके अपनाएं: फसल चक्र रखें, उचित दूरी बनाए रखें, अतिरिक्त नाइट्रोजन से बचें और सिंचाई संभालें।">Use cultural methods: rotate crops, maintain suitable spacing, avoid excess nitrogen, and manage irrigation.</li>
+              <li data-en="Use mechanical methods where appropriate: hand-pick larger pests, remove affected parts, or use barriers and traps." data-hi="उपयुक्त होने पर यांत्रिक तरीके अपनाएं: बड़े कीट हाथ से हटाएं, प्रभावित हिस्से निकालें या अवरोध व ट्रैप लगाएं।">Use mechanical methods where appropriate: hand-pick larger pests, remove affected parts, or use barriers and traps.</li>
+              <li data-en="Protect natural enemies and use biological-control products only when registered, suitable, and locally recommended." data-hi="प्राकृतिक शत्रुओं की रक्षा करें; जैविक नियंत्रण उत्पाद तभी उपयोग करें जब वे पंजीकृत, उपयुक्त और स्थानीय रूप से सुझाए गए हों।">Protect natural enemies and use biological-control products only when registered, suitable, and locally recommended.</li>
+              <li data-en="Use pesticides only when needed, and only if registered for the crop and target pest." data-hi="कीटनाशक केवल जरूरत पर और फसल व लक्षित कीट के लिए पंजीकृत होने पर ही उपयोग करें।">Use pesticides only when needed, and only if registered for the crop and target pest.</li>
+            </ul>
+            <p data-en="Repeatedly growing the same crop, warm or humid weather, infested seed or nearby host weeds, late detection, and incorrect identification can all make problems worse. Some pests and diseases are weather- and crop-specific." data-hi="एक ही फसल बार-बार लेना, गर्म या नम मौसम, संक्रमित बीज या पास के खरपतवार, देर से पहचान और गलत निदान समस्याएं बढ़ा सकते हैं। कुछ कीट और रोग विशेष मौसम व फसल से जुड़े होते हैं।">Repeatedly growing the same crop, warm or humid weather, infested seed or nearby host weeds, late detection, and incorrect identification can all make problems worse. Some pests and diseases are weather- and crop-specific.</p>
+          </div>
+        </details>
+        <details class="soil-care-details">
+          <summary data-en="What to do when a crop looks damaged" data-hi="फसल क्षतिग्रस्त दिखे तो क्या करें">What to do when a crop looks damaged</summary>
+          <div class="soil-care-content">
+            <ol>
+              <li data-en="Photograph the whole plant, affected area, and any insect or visible sign; include the crop name and growth stage." data-hi="पूरे पौधे, प्रभावित हिस्से और दिखने वाले कीट या निशान की तस्वीर लें; फसल का नाम और अवस्था भी बताएं।">Photograph the whole plant, affected area, and any insect or visible sign; include the crop name and growth stage.</li>
+              <li data-en="Inspect more than one plant and both sides of leaves. Note where symptoms occur and when they began." data-hi="एक से अधिक पौधों और पत्तियों के दोनों तरफ देखें। लक्षण कहां हैं और कब शुरू हुए, यह लिखें।">Inspect more than one plant and both sides of leaves. Note where symptoms occur and when they began.</li>
+              <li data-en="Review recent irrigation, rainfall, weather, fertiliser, and pesticide use." data-hi="हाल की सिंचाई, बारिश, मौसम, खाद और कीटनाशक के उपयोग की जानकारी देखें।">Review recent irrigation, rainfall, weather, fertiliser, and pesticide use.</li>
+              <li data-en="Do not spray an unidentified chemical or increase a dose. Seek local expert help if the cause is unclear or damage is spreading." data-hi="अज्ञात रसायन का छिड़काव न करें और मात्रा न बढ़ाएं। कारण स्पष्ट न हो या नुकसान फैल रहा हो तो स्थानीय विशेषज्ञ से सहायता लें।">Do not spray an unidentified chemical or increase a dose. Seek local expert help if the cause is unclear or damage is spreading.</li>
+              <li data-en="After an action, inspect again and record whether the damage is increasing or decreasing." data-hi="कदम उठाने के बाद फिर जांचें और लिखें कि नुकसान बढ़ रहा है या घट रहा है।">After an action, inspect again and record whether the damage is increasing or decreasing.</li>
+            </ol>
+            <h3 data-en="Example: yellow leaves" data-hi="उदाहरण: पीली पत्तियां">Example: yellow leaves</h3>
+            <p data-en="Before assuming insects are responsible, check whether pests are visible, whether soil is too wet or dry, whether older or newer leaves are affected, and whether fertiliser or pesticide was recently applied. Possible causes include nutrient deficiency, water stress, pests, or disease. Treat these as possibilities and seek expert confirmation when unclear." data-hi="कीटों को कारण मानने से पहले देखें कि कीट दिख रहे हैं या नहीं, मिट्टी बहुत गीली या सूखी तो नहीं, पुरानी या नई पत्तियां प्रभावित हैं, और हाल में खाद या कीटनाशक डाला गया था या नहीं। संभावित कारणों में पोषक तत्वों की कमी, पानी का तनाव, कीट या रोग शामिल हैं। इन्हें केवल संभावनाएं मानें और संदेह होने पर विशेषज्ञ से पुष्टि लें।">Before assuming insects are responsible, check whether pests are visible, whether soil is too wet or dry, whether older or newer leaves are affected, and whether fertiliser or pesticide was recently applied. Possible causes include nutrient deficiency, water stress, pests, or disease. Treat these as possibilities and seek expert confirmation when unclear.</p>
+          </div>
+        </details>
+        <details class="soil-care-details">
+          <summary data-en="Use crop-protection products safely" data-hi="फसल-सुरक्षा उत्पाद सुरक्षित रूप से उपयोग करें">Use crop-protection products safely</summary>
+          <div class="soil-care-content">
+            <ul>
+              <li data-en="Follow the product label and local regulations. Use only products registered for the crop and target pest." data-hi="उत्पाद के लेबल और स्थानीय नियमों का पालन करें। केवल फसल और लक्षित कीट के लिए पंजीकृत उत्पाद उपयोग करें।">Follow the product label and local regulations. Use only products registered for the crop and target pest.</li>
+              <li data-en="Wear the protective equipment specified on the label; keep children and animals away during mixing and application." data-hi="लेबल में बताए सुरक्षा उपकरण पहनें; मिश्रण और छिड़काव के दौरान बच्चों और पशुओं को दूर रखें।">Wear the protective equipment specified on the label; keep children and animals away during mixing and application.</li>
+              <li data-en="Avoid spraying against the wind, near water sources, or in conditions prohibited by the label; prevent drift onto neighbouring crops." data-hi="हवा के विपरीत, जल स्रोतों के पास या लेबल द्वारा मना की गई परिस्थितियों में छिड़काव न करें; पड़ोसी फसलों पर छिड़काव फैलने से रोकें।">Avoid spraying against the wind, near water sources, or in conditions prohibited by the label; prevent drift onto neighbouring crops.</li>
+              <li data-en="Observe the pre-harvest interval before picking and the re-entry interval before returning to treated fields." data-hi="फसल तोड़ने से पहले कटाई-पूर्व अवधि और खेत में लौटने से पहले पुनः-प्रवेश अवधि का पालन करें।">Observe the pre-harvest interval before picking and the re-entry interval before returning to treated fields.</li>
+              <li data-en="Never reuse pesticide containers for food or water. Dispose of containers and leftover product according to the label and local guidance." data-hi="कीटनाशक के डिब्बों का भोजन या पानी के लिए दोबारा उपयोग न करें। डिब्बों और बचे उत्पाद का निपटान लेबल व स्थानीय सलाह के अनुसार करें।">Never reuse pesticide containers for food or water. Dispose of containers and leftover product according to the label and local guidance.</li>
+              <li data-en="Do not repeatedly rely on one pesticide. Ask a qualified adviser about resistance management; never mix products unless labels permit it." data-hi="बार-बार एक ही कीटनाशक पर निर्भर न रहें। प्रतिरोध प्रबंधन के लिए योग्य सलाहकार से पूछें; लेबल अनुमति न दे तो उत्पाद न मिलाएं।">Do not repeatedly rely on one pesticide. Ask a qualified adviser about resistance management; never mix products unless labels permit it.</li>
+            </ul>
+          </div>
+        </details>
+        <details class="soil-care-details">
+          <summary data-en="Share useful details when asking for digital or expert help" data-hi="डिजिटल या विशेषज्ञ सहायता लेते समय उपयोगी जानकारी दें">Share useful details when asking for digital or expert help</summary>
+          <div class="soil-care-content">
+            <p data-en="Include the crop, growth stage, district or region, soil-test results if available, clear photos, and recent weather and farm practices. Describe where symptoms occur and what you have already tried. Treat photo-based or app-generated causes as possibilities—not a guaranteed diagnosis—and confirm costly or uncertain actions with a local expert." data-hi="फसल, उसकी अवस्था, जिला या क्षेत्र, उपलब्ध मिट्टी जांच, साफ तस्वीरें और हाल का मौसम व खेती के तरीके बताएं। लक्षण कहां हैं और आपने क्या उपाय किए हैं, यह भी लिखें। फोटो या ऐप से मिले कारणों को संभावना मानें—पक्का निदान नहीं—और महंगे या अनिश्चित कदम स्थानीय विशेषज्ञ से पुष्टि करके लें।">Include the crop, growth stage, district or region, soil-test results if available, clear photos, and recent weather and farm practices. Describe where symptoms occur and what you have already tried. Treat photo-based or app-generated causes as possibilities—not a guaranteed diagnosis—and confirm costly or uncertain actions with a local expert.</p>
+          </div>
+        </details>
+        <p class="soil-care-warning" data-en="This is general educational guidance, not a diagnosis or a substitute for crop-specific local advice. Exact chemical recommendations, doses, and treatment schedules must come from current, locally approved agricultural guidance." data-hi="यह सामान्य शैक्षिक जानकारी है, निदान या फसल-विशिष्ट स्थानीय सलाह का विकल्प नहीं। रसायनों के सटीक सुझाव, मात्रा और उपचार समय-सारणी वर्तमान स्थानीय रूप से स्वीकृत कृषि सलाह से ही लें।">This is general educational guidance, not a diagnosis or a substitute for crop-specific local advice. Exact chemical recommendations, doses, and treatment schedules must come from current, locally approved agricultural guidance.</p>
         <a class="field-guide-link" href="index.html#contact"><span data-en="Have a question about your field? Talk to an expert" data-hi="अपने खेत के बारे में सवाल है? विशेषज्ञ से बात करें">Have a question about your field? Talk to an expert</span> <span aria-hidden="true">→</span></a>
       </section>
       <a class="back-link" href="index.html#services" data-en="Back to Home" data-hi="मुखपृष्ठ पर वापस जाएं">Back to Home</a>

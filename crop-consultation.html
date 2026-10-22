@@ -78,8 +78,76 @@
         font-weight: 700;
         text-decoration: none;
       }
+      .consultation-subheading {
+        margin: 30px 0 14px;
+        color: var(--green-900);
+        font-size: 1.1rem;
+      }
+      .consultation-factors {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px 24px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .consultation-factors li {
+        position: relative;
+        margin: 0;
+        padding: 12px 14px 12px 38px;
+        border-radius: 14px;
+        background: var(--green-100);
+      }
+      .consultation-factors li::before {
+        position: absolute;
+        left: 14px;
+        color: var(--green-600);
+        content: "✓";
+        font-weight: 800;
+      }
+      .consultation-details {
+        margin-top: 14px;
+        border: 1px solid rgba(18, 77, 57, 0.12);
+        border-radius: 16px;
+        background: var(--white);
+      }
+      .consultation-details summary {
+        padding: 15px 18px;
+        color: var(--green-900);
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .consultation-details-content {
+        padding: 0 18px 18px;
+      }
+      .consultation-details-content p,
+      .consultation-details-content li {
+        color: var(--muted);
+      }
+      .consultation-details-content p:last-child {
+        margin-bottom: 0;
+      }
+      .consultation-note {
+        margin: 22px 0 0;
+        padding: 16px 18px;
+        border-left: 4px solid var(--gold-500, #d9a441);
+        border-radius: 10px;
+        background: #e6cf8e;
+        color: #3b2e13;
+      }
+      :root[data-theme="dark"] .consultation-note {
+        background: #5a4a21;
+        color: #fff1c2;
+      }
+      :root[data-theme="dark"] .consultation-details {
+        border-color: rgba(214, 242, 226, 0.14);
+        background: #1e2b23;
+      }
       @media (prefers-reduced-motion: reduce) {
         *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+      }
+      @media (max-width: 620px) {
+        .consultation-factors { grid-template-columns: 1fr; }
       }
     </style>
     <link rel="stylesheet" href="theme.css" />
@@ -115,26 +183,114 @@
       <p data-en="For advice specific to your farm, share your location, crop, planting date, and a clear description or photo of the issue with an agriculture expert." data-hi="अपने खेत के लिए विशेष सलाह पाने हेतु कृषि विशेषज्ञ को अपना स्थान, फसल, बुवाई की तारीख और समस्या का स्पष्ट विवरण या फोटो दें।">For advice specific to your farm, share your location, crop, planting date, and a clear description or photo of the issue with an agriculture expert.</p>
       <section class="field-guide-panel">
         <div class="section-head">
-          <h2 data-en="A simple field-ready checklist" data-hi="खेत के लिए एक सरल चेकलिस्ट">A simple field-ready checklist</h2>
-          <p data-en="A few regular checks can help you spot problems early and make more informed farm decisions." data-hi="कुछ नियमित जांच से समस्याओं को जल्दी पहचानने और खेती के बेहतर फैसले लेने में मदद मिल सकती है।">A few regular checks can help you spot problems early and make more informed farm decisions.</p>
+          <h2 data-en="Plan a crop consultation with confidence" data-hi="आत्मविश्वास के साथ फसल परामर्श की योजना बनाएं">Plan a crop consultation with confidence</h2>
+          <p data-en="Good advice combines what is happening in the field with local conditions, reliable evidence, and your goals and resources." data-hi="अच्छी सलाह खेत की स्थिति, स्थानीय परिस्थितियों, विश्वसनीय जानकारी और आपके लक्ष्यों व संसाधनों को साथ लेकर चलती है।">Good advice combines what is happening in the field with local conditions, reliable evidence, and your goals and resources.</p>
         </div>
+        <h3 class="consultation-subheading" data-en="A consultation, step by step" data-hi="परामर्श के चरण">A consultation, step by step</h3>
         <div class="field-guide-grid">
+          <article class="field-guide-card">
+            <div class="field-guide-icon" aria-hidden="true">1</div>
+            <h3 data-en="Understand the farm" data-hi="खेत को समझें">Understand the farm</h3>
+            <p data-en="Discuss your goals, previous crops, current challenges, costs, and available resources." data-hi="अपने लक्ष्य, पिछली फसलें, मौजूदा समस्याएं, लागत और उपलब्ध संसाधनों पर बात करें।">Discuss your goals, previous crops, current challenges, costs, and available resources.</p>
+          </article>
+          <article class="field-guide-card">
+            <div class="field-guide-icon" aria-hidden="true">2</div>
+            <h3 data-en="Inspect the field" data-hi="खेत का निरीक्षण करें">Inspect the field</h3>
+            <p data-en="Review the crop stage, soil condition, water and drainage, and visible symptoms." data-hi="फसल की अवस्था, मिट्टी, पानी व जल निकासी और दिखाई देने वाले लक्षणों को देखें।">Review the crop stage, soil condition, water and drainage, and visible symptoms.</p>
+          </article>
+          <article class="field-guide-card">
+            <div class="field-guide-icon" aria-hidden="true">3</div>
+            <h3 data-en="Gather evidence" data-hi="जानकारी जुटाएं">Gather evidence</h3>
+            <p data-en="Use field history, photos, weather information, and soil or water tests when useful." data-hi="जरूरत के अनुसार खेत का इतिहास, फोटो, मौसम की जानकारी और मिट्टी या पानी की जांच का उपयोग करें।">Use field history, photos, weather information, and soil or water tests when useful.</p>
+          </article>
+          <article class="field-guide-card">
+            <div class="field-guide-icon" aria-hidden="true">4</div>
+            <h3 data-en="Compare options" data-hi="विकल्पों की तुलना करें">Compare options</h3>
+            <p data-en="Weigh suitable crops and practices against local risks, costs, and likely returns." data-hi="उपयुक्त फसलों और तरीकों को स्थानीय जोखिम, लागत और संभावित आमदनी के अनुसार परखें।">Weigh suitable crops and practices against local risks, costs, and likely returns.</p>
+          </article>
+          <article class="field-guide-card">
+            <div class="field-guide-icon" aria-hidden="true">5</div>
+            <h3 data-en="Make an action plan" data-hi="काम की योजना बनाएं">Make an action plan</h3>
+            <p data-en="Set practical priorities, timing, quantities, and any necessary safety precautions." data-hi="व्यावहारिक प्राथमिकताएं, समय, मात्रा और जरूरी सुरक्षा सावधानियां तय करें।">Set practical priorities, timing, quantities, and any necessary safety precautions.</p>
+          </article>
+          <article class="field-guide-card">
+            <div class="field-guide-icon" aria-hidden="true">6</div>
+            <h3 data-en="Follow up and adjust" data-hi="फिर से जांचें और बदलाव करें">Follow up and adjust</h3>
+            <p data-en="Record what changed, observe the result, and update the plan as conditions change." data-hi="क्या बदलाव हुआ, उसका नतीजा देखें और परिस्थितियों के अनुसार योजना सुधारें।">Record what changed, observe the result, and update the plan as conditions change.</p>
+          </article>
+        </div>
+
+        <h3 class="consultation-subheading" data-en="Consider the whole farm" data-hi="पूरे खेत को ध्यान में रखें">Consider the whole farm</h3>
+        <ul class="consultation-factors">
+          <li data-en="Soil: texture, drainage, pH, salinity, organic matter, and nutrient status." data-hi="मिट्टी: बनावट, जल निकासी, pH, लवणता, जैविक पदार्थ और पोषक तत्व।">Soil: texture, drainage, pH, salinity, organic matter, and nutrient status.</li>
+          <li data-en="Climate: temperature, rainfall, humidity, sunlight, and season length." data-hi="जलवायु: तापमान, वर्षा, नमी, धूप और फसल मौसम की अवधि।">Climate: temperature, rainfall, humidity, sunlight, and season length.</li>
+          <li data-en="Water: source, quality, availability, irrigation method, and drainage." data-hi="पानी: स्रोत, गुणवत्ता, उपलब्धता, सिंचाई का तरीका और जल निकासी।">Water: source, quality, availability, irrigation method, and drainage.</li>
+          <li data-en="Crop and variety: local suitability, maturity time, seed quality, and resistance." data-hi="फसल और किस्म: स्थानीय अनुकूलता, पकने का समय, बीज की गुणवत्ता और प्रतिरोधक क्षमता।">Crop and variety: local suitability, maturity time, seed quality, and resistance.</li>
+          <li data-en="Farm resources: land, labour, machinery, budget, and access to inputs." data-hi="खेती के संसाधन: जमीन, श्रम, मशीनरी, बजट और कृषि सामग्री की उपलब्धता।">Farm resources: land, labour, machinery, budget, and access to inputs.</li>
+          <li data-en="Market: likely demand and prices, storage, transport, and buyer access." data-hi="बाजार: संभावित मांग व कीमत, भंडारण, परिवहन और खरीदारों तक पहुंच।">Market: likely demand and prices, storage, transport, and buyer access.</li>
+          <li data-en="Local risks: pests, diseases, weeds, floods, drought, heat, and price changes." data-hi="स्थानीय जोखिम: कीट, रोग, खरपतवार, बाढ़, सूखा, गर्मी और कीमतों में बदलाव।">Local risks: pests, diseases, weeds, floods, drought, heat, and price changes.</li>
+        </ul>
+
+        <h3 class="consultation-subheading" data-en="A practical crop-care checklist" data-hi="फसल देखभाल की उपयोगी चेकलिस्ट">A practical crop-care checklist</h3>
+        <div class="field-guide-grid">
+          <article class="field-guide-card">
+            <div class="field-guide-icon" aria-hidden="true">🌾</div>
+            <h3 data-en="Choose crops and seed carefully" data-hi="फसल और बीज सोच-समझकर चुनें">Choose crops and seed carefully</h3>
+            <p data-en="Compare realistic crop options for your climate, soil, water, costs, and market. Choose quality-assured seed and follow local advice on variety, sowing time, spacing, and seed rate." data-hi="जलवायु, मिट्टी, पानी, लागत और बाजार के अनुसार फसल विकल्पों की तुलना करें। अच्छी गुणवत्ता वाला बीज चुनें और किस्म, बुवाई का समय, दूरी व बीज दर के लिए स्थानीय सलाह मानें।">Compare realistic crop options for your climate, soil, water, costs, and market. Choose quality-assured seed and follow local advice on variety, sowing time, spacing, and seed rate.</p>
+          </article>
           <article class="field-guide-card">
             <div class="field-guide-icon" aria-hidden="true">🪴</div>
             <h3 data-en="Start with the soil" data-hi="मिट्टी से शुरुआत करें">Start with the soil</h3>
-            <p data-en="Check soil condition and choose nutrients based on a soil test, not guesswork." data-hi="मिट्टी की जांच करें और अंदाज के बजाय मिट्टी परीक्षण के आधार पर पोषक तत्व चुनें।">Check soil condition and choose nutrients based on a soil test, not guesswork.</p>
+            <p data-en="Use a representative soil sample and test results to guide nutrient choices. Avoid unusual spots unless you are testing them separately, and do not apply fertiliser, lime, or gypsum by guesswork." data-hi="पोषक तत्वों के चयन के लिए खेत का प्रतिनिधि मिट्टी नमूना और जांच रिपोर्ट देखें। अलग जांच के लिए न हों तो असामान्य जगहों से नमूना न लें; अंदाज से खाद, चूना या जिप्सम न डालें।">Use a representative soil sample and test results to guide nutrient choices. Avoid unusual spots unless you are testing them separately, and do not apply fertiliser, lime, or gypsum by guesswork.</p>
+          </article>
+          <article class="field-guide-card">
+            <div class="field-guide-icon" aria-hidden="true">🧪</div>
+            <h3 data-en="Balance nutrients" data-hi="पोषक तत्वों का संतुलन रखें">Balance nutrients</h3>
+            <p data-en="Base fertiliser decisions on soil tests, crop needs, and local recommendations. Use the right source, amount, timing, and placement; store inputs safely." data-hi="खाद का फैसला मिट्टी जांच, फसल की जरूरत और स्थानीय सलाह के अनुसार करें। सही स्रोत, मात्रा, समय और स्थान चुनें; कृषि सामग्री सुरक्षित रखें।">Base fertiliser decisions on soil tests, crop needs, and local recommendations. Use the right source, amount, timing, and placement; store inputs safely.</p>
           </article>
           <article class="field-guide-card">
             <div class="field-guide-icon" aria-hidden="true">💧</div>
             <h3 data-en="Plan water wisely" data-hi="समझदारी से पानी की योजना बनाएं">Plan water wisely</h3>
-            <p data-en="Match watering to crop needs and local conditions to avoid waste or stress." data-hi="पानी की बर्बादी या फसल पर तनाव से बचने के लिए सिंचाई को फसल की जरूरत और स्थानीय परिस्थितियों के अनुसार रखें।">Match watering to crop needs and local conditions to avoid waste or stress.</p>
+            <p data-en="Check root-zone moisture and crop stage, not just a fixed calendar. Choose a suitable irrigation method, maintain drainage, and follow local weather and water advisories." data-hi="केवल तय तारीखों पर नहीं, जड़ क्षेत्र की नमी और फसल की अवस्था देखकर सिंचाई करें। उपयुक्त तरीका चुनें, जल निकासी बनाए रखें और स्थानीय मौसम व पानी संबंधी सलाह देखें।">Check root-zone moisture and crop stage, not just a fixed calendar. Choose a suitable irrigation method, maintain drainage, and follow local weather and water advisories.</p>
           </article>
           <article class="field-guide-card">
             <div class="field-guide-icon" aria-hidden="true">🔎</div>
-            <h3 data-en="Check crops regularly" data-hi="फसलों की नियमित जांच करें">Check crops regularly</h3>
-            <p data-en="Look for unusual spots, insects, or wilting early; ask an expert before treatment." data-hi="असामान्य धब्बों, कीटों या मुरझाने के लक्षणों को जल्दी पहचानें; उपचार से पहले विशेषज्ञ से सलाह लें।">Look for unusual spots, insects, or wilting early; ask an expert before treatment.</p>
+            <h3 data-en="Identify before treating" data-hi="उपचार से पहले पहचानें">Identify before treating</h3>
+            <p data-en="Inspect regularly and confirm the likely cause before acting. Start with prevention and monitoring; use a pesticide only when justified, legally registered for the crop and target, and exactly as its label directs." data-hi="नियमित निरीक्षण करें और कार्रवाई से पहले संभावित कारण की पुष्टि करें। रोकथाम और निगरानी से शुरुआत करें; कीटनाशक तभी उपयोग करें जब जरूरी हो, वह फसल और लक्षित समस्या के लिए वैध रूप से पंजीकृत हो, और लेबल के अनुसार ही हो।">Inspect regularly and confirm the likely cause before acting. Start with prevention and monitoring; use a pesticide only when justified, legally registered for the crop and target, and exactly as its label directs.</p>
+          </article>
+          <article class="field-guide-card">
+            <div class="field-guide-icon" aria-hidden="true">♻️</div>
+            <h3 data-en="Build resilience and keep records" data-hi="खेती को मजबूत बनाएं और रिकॉर्ड रखें">Build resilience and keep records</h3>
+            <p data-en="Use locally suitable varieties, crop rotation, soil cover, and careful water use where appropriate. Record sowing, inputs, field observations, costs, and harvest to improve next season’s decisions." data-hi="स्थानीय रूप से उपयुक्त किस्में, फसल चक्र, मिट्टी का आवरण और पानी का समझदारी से उपयोग करें। अगली फसल के फैसले बेहतर करने के लिए बुवाई, कृषि सामग्री, निरीक्षण, लागत और उपज का रिकॉर्ड रखें।">Use locally suitable varieties, crop rotation, soil cover, and careful water use where appropriate. Record sowing, inputs, field observations, costs, and harvest to improve next season’s decisions.</p>
           </article>
         </div>
+
+        <details class="consultation-details">
+          <summary data-en="Example: investigating uneven wheat growth" data-hi="उदाहरण: गेहूं की असमान बढ़त की जांच">Example: investigating uneven wheat growth</summary>
+          <div class="consultation-details-content">
+            <p data-en="If a wheat field has uneven growth and rising input costs, first map weak and healthy patches. Compare crop stand, sowing depth, seed quality, soil moisture, drainage, weeds, irrigation history, and recent weather." data-hi="यदि गेहूं के खेत में बढ़त असमान है और लागत बढ़ रही है, तो पहले कमजोर और स्वस्थ हिस्सों का नक्शा बनाएं। फसल की स्थिति, बुवाई की गहराई, बीज की गुणवत्ता, मिट्टी की नमी, जल निकासी, खरपतवार, सिंचाई का इतिहास और हाल का मौसम जांचें।">If a wheat field has uneven growth and rising input costs, first map weak and healthy patches. Compare crop stand, sowing depth, seed quality, soil moisture, drainage, weeds, irrigation history, and recent weather.</p>
+            <p data-en="Test soil if needed, then use the results and local guidance to address confirmed causes. Monitor the field after each action and record its cost and crop response. This is an example, not a diagnosis or one-size-fits-all prescription." data-hi="जरूरत हो तो मिट्टी की जांच करें, फिर पुष्टि किए गए कारणों के समाधान के लिए रिपोर्ट और स्थानीय सलाह अपनाएं। हर कदम के बाद खेत देखें और लागत व फसल की प्रतिक्रिया दर्ज करें। यह केवल उदाहरण है, पक्का निदान या हर खेत के लिए एक जैसी सलाह नहीं।">Test soil if needed, then use the results and local guidance to address confirmed causes. Monitor the field after each action and record its cost and crop response. This is an example, not a diagnosis or one-size-fits-all prescription.</p>
+          </div>
+        </details>
+        <details class="consultation-details">
+          <summary data-en="What to bring to an expert consultation" data-hi="विशेषज्ञ से परामर्श के लिए क्या लाएं">What to bring to an expert consultation</summary>
+          <div class="consultation-details-content">
+            <ul>
+              <li data-en="Field location, approximate size, and previous crop history." data-hi="खेत का स्थान, अनुमानित आकार और पिछली फसलों का विवरण।">Field location, approximate size, and previous crop history.</li>
+              <li data-en="Crop and variety, sowing date, and seed source or packet." data-hi="फसल और किस्म, बुवाई की तारीख और बीज का स्रोत या पैकेट।">Crop and variety, sowing date, and seed source or packet.</li>
+              <li data-en="Soil test report and irrigation-water information, if available." data-hi="यदि उपलब्ध हो तो मिट्टी जांच रिपोर्ट और सिंचाई के पानी की जानकारी।">Soil test report and irrigation-water information, if available.</li>
+              <li data-en="Names, amounts, and application dates for fertilisers or crop-protection products used." data-hi="उपयोग की गई खाद या फसल-सुरक्षा उत्पादों के नाम, मात्रा और डालने की तारीखें।">Names, amounts, and application dates for fertilisers or crop-protection products used.</li>
+              <li data-en="Clear photos of symptoms, showing both affected and healthy plants, plus where they occur." data-hi="लक्षणों की साफ तस्वीरें—प्रभावित और स्वस्थ पौधों सहित—और खेत में उनका स्थान।">Clear photos of symptoms, showing both affected and healthy plants, plus where they occur.</li>
+              <li data-en="Recent weather, irrigation, drainage, and any changes you have already made." data-hi="हाल का मौसम, सिंचाई, जल निकासी और पहले से किए गए बदलाव।">Recent weather, irrigation, drainage, and any changes you have already made.</li>
+              <li data-en="Your available budget, labour, equipment, and market or harvest plans." data-hi="आपका उपलब्ध बजट, श्रम, उपकरण और बाजार या कटाई की योजना।">Your available budget, labour, equipment, and market or harvest plans.</li>
+            </ul>
+            <p data-en="Ask the adviser: What should I do first, when should I do it, and how will we check whether it worked?" data-hi="सलाहकार से पूछें: सबसे पहले क्या करना है, कब करना है और कैसे पता चलेगा कि उपाय काम कर गया?">Ask the adviser: What should I do first, when should I do it, and how will we check whether it worked?</p>
+          </div>
+        </details>
+
+        <p class="consultation-note" data-en="Recommendations should fit your crop, region, soil, weather, growth stage, and resources. Photos or symptoms alone may not confirm a diagnosis. No yield or profit is guaranteed. Follow current local guidance, product labels, worker-safety rules, and environmental protections; consult a qualified specialist or laboratory for complex issues." data-hi="सलाह आपकी फसल, क्षेत्र, मिट्टी, मौसम, फसल की अवस्था और संसाधनों के अनुकूल होनी चाहिए। केवल फोटो या लक्षणों से निदान पक्का नहीं होता। उपज या लाभ की गारंटी नहीं दी जा सकती। स्थानीय सलाह, उत्पाद के लेबल, श्रमिक सुरक्षा और पर्यावरण नियमों का पालन करें; जटिल मामलों में योग्य विशेषज्ञ या प्रयोगशाला से परामर्श लें।">Recommendations should fit your crop, region, soil, weather, growth stage, and resources. Photos or symptoms alone may not confirm a diagnosis. No yield or profit is guaranteed. Follow current local guidance, product labels, worker-safety rules, and environmental protections; consult a qualified specialist or laboratory for complex issues.</p>
+        <p data-en="For reliable, current recommendations, check with local agricultural extension services such as Krishi Vigyan Kendras (KVKs), and consult the Indian Council of Agricultural Research (ICAR) and Food and Agriculture Organization (FAO) resources." data-hi="विश्वसनीय और अद्यतन सलाह के लिए कृषि विज्ञान केंद्र (KVK) जैसी स्थानीय कृषि विस्तार सेवाओं से संपर्क करें और भारतीय कृषि अनुसंधान परिषद (ICAR) तथा खाद्य एवं कृषि संगठन (FAO) के संसाधन देखें।">For reliable, current recommendations, check with local agricultural extension services such as Krishi Vigyan Kendras (KVKs), and consult the Indian Council of Agricultural Research (ICAR) and Food and Agriculture Organization (FAO) resources.</p>
+        <p><a href="https://icar.org.in/" target="_blank" rel="noopener noreferrer">ICAR</a> · <a href="https://www.fao.org/" target="_blank" rel="noopener noreferrer">FAO</a></p>
         <a class="field-guide-link" href="index.html#contact"><span data-en="Have a question about your field? Talk to an expert" data-hi="अपने खेत के बारे में सवाल है? विशेषज्ञ से बात करें">Have a question about your field? Talk to an expert</span> <span aria-hidden="true">→</span></a>
       </section>
       <a class="back-link" href="index.html#services" data-en="Back to Home" data-hi="मुखपृष्ठ पर वापस जाएं">Back to Home</a>

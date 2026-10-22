@@ -590,6 +590,13 @@
         box-shadow: 0 10px 22px rgba(17, 50, 40, 0.08);
       }
 
+      .btn-download-app {
+        border: 1px solid rgba(112, 66, 20, 0.16);
+        background: linear-gradient(135deg, #f5ce67, #dfa832);
+        color: #183b2a;
+        box-shadow: 0 12px 24px rgba(173, 116, 20, 0.2);
+      }
+
       .trust-list {
         display: flex;
         flex-wrap: wrap;
@@ -1294,6 +1301,11 @@
         color: var(--text);
       }
 
+      :root[data-theme="dark"] .btn-download-app {
+        background: linear-gradient(135deg, #f5ce67, #dfa832);
+        color: #183b2a;
+      }
+
       @media (prefers-reduced-motion: reduce) {
         :root[data-theme="dark"] body {
           animation: none;
@@ -1705,6 +1717,7 @@
             <div class="button-row" data-animate="up">
               <a class="btn btn-primary" href="#contact">Get Help</a>
               <a class="btn btn-secondary" href="tel:+918081392456">Speak to an Expert</a>
+              <a class="btn btn-secondary btn-download-app" href="download-app.html">Download App</a>
             </div>
 
             <div class="trust-list" aria-label="Farmer support features" data-animate="up">

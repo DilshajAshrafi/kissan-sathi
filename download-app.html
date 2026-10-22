@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Download the Kisaan Sathi Android app for crop guidance, irrigation planning, soil and pest care, government scheme information, and expert support." />
+    <meta name="theme-color" content="#124d39" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <title>Kisaan Sathi | Download the App</title>
+    <script>
+      if (localStorage.getItem('kisaanSathiTheme') === 'dark') {
+        document.documentElement.dataset.theme = 'dark';
+      }
+    </script>
+    <link rel="stylesheet" href="theme.css" />
+    <link rel="stylesheet" href="agri-assistant.css" />
+    <link rel="stylesheet" href="page-redesign.css" />
+    <style>
+      :root {
+        --green-900: #0b3b2a;
+        --green-800: #124d39;
+        --green-700: #1f6a4f;
+        --green-600: #2d8b5f;
+        --green-100: #ebf7ef;
+        --gold-500: #d9a441;
+        --cream: #f7f5ef;
+        --text: #1d2a22;
+        --muted: #5d6d64;
+        --white: #fff;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        padding: 24px 16px 48px;
+        color: var(--text);
+        background:
+          radial-gradient(ellipse at 90% 0, rgba(217, 164, 65, .18), transparent 32rem),
+          linear-gradient(145deg, #f3f8f3, var(--cream) 58%, #edf7f1);
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.6;
+      }
+      .download-wrap { width: min(1020px, 100%); margin: 0 auto; }
+      .page-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 26px; }
+      .brand { display: inline-flex; align-items: center; gap: 10px; color: var(--green-900); font-weight: 800; letter-spacing: .06em; text-decoration: none; }
+      .brand img { width: 42px; height: 42px; border-radius: 13px; }
+      .settings-menu > summary { background: var(--white); }
+      .settings-menu-label { display: inline; }
+      .settings-menu-panel .theme-toggle {
+        min-height: 42px;
+        padding: 9px 14px;
+        border: 1px solid rgba(18, 77, 57, .16);
+        border-radius: 12px;
+        background: var(--green-100);
+        color: var(--green-900);
+        font: inherit;
+        font-size: .9rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: transform .2s ease, box-shadow .2s ease, background-color .3s ease, color .3s ease;
+      }
+      .settings-menu-panel .theme-toggle:hover { transform: translateY(-1px); box-shadow: 0 8px 18px rgba(18, 77, 57, .14); }
+      .settings-menu-panel .theme-toggle:focus-visible { outline: 3px solid var(--green-600); outline-offset: 2px; }
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.3fr) minmax(260px, .7fr);
+        align-items: center;
+        gap: clamp(28px, 6vw, 68px);
+        padding: clamp(28px, 6vw, 64px);
+        border: 1px solid rgba(18, 77, 57, .1);
+        border-radius: 32px;
+        background: rgba(255, 255, 255, .86);
+        box-shadow: 0 24px 70px rgba(11, 59, 42, .12);
+      }
+      .eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 7px 12px; border-radius: 999px; background: var(--green-100); color: var(--green-800); font-size: .85rem; font-weight: 700; }
+      h1, h2, h3 { color: var(--green-900); line-height: 1.2; }
+      h1 { margin: 18px 0 14px; font-size: clamp(2.25rem, 6vw, 4.1rem); letter-spacing: -.045em; }
+      .hero-copy > p { max-width: 590px; margin: 0; color: var(--muted); font-size: 1.08rem; }
+      .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 28px; }
+      .download-button, .home-link { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 13px 21px; border-radius: 999px; font: inherit; font-weight: 800; text-decoration: none; transition: transform .2s ease, box-shadow .2s ease; }
+      .download-button { background: linear-gradient(135deg, #b7790f, #965c08); color: #fff; box-shadow: 0 12px 24px rgba(112, 66, 20, .3); }
+      .home-link { border: 1px solid rgba(18, 77, 57, .18); color: var(--green-800); }
+      .download-button:hover, .home-link:hover { transform: translateY(-2px); }
+      .download-button:focus-visible, .home-link:focus-visible { outline: 3px solid var(--gold-500); outline-offset: 3px; }
+      .file-note { margin: 12px 0 0; color: var(--muted); font-size: .88rem; }
+      .app-visual { display: grid; justify-items: center; gap: 16px; }
+      .app-icon { width: min(240px, 70%); aspect-ratio: 1; border: 8px solid rgba(255, 255, 255, .8); border-radius: 34%; box-shadow: 0 22px 50px rgba(18, 77, 57, .2); }
+      .app-visual p { max-width: 250px; margin: 0; color: var(--muted); text-align: center; font-size: .92rem; }
+      .section { margin-top: 54px; }
+      .section-heading { max-width: 660px; margin: 0 auto 24px; text-align: center; }
+      .section-heading h2 { margin: 0 0 10px; font-size: clamp(1.65rem, 4vw, 2.35rem); }
+      .section-heading p { margin: 0; color: var(--muted); }
+      .feature-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+      .feature-card { padding: 22px; border: 1px solid rgba(18, 77, 57, .1); border-radius: 20px; background: rgba(255, 255, 255, .76); }
+      .feature-icon { display: grid; width: 46px; height: 46px; place-items: center; border-radius: 14px; background: var(--green-100); font-size: 1.4rem; }
+      .feature-card h3 { margin: 15px 0 7px; font-size: 1.08rem; }
+      .feature-card p { margin: 0; color: var(--muted); font-size: .93rem; }
+      .install-panel { display: grid; grid-template-columns: .8fr 1.2fr; gap: 30px; align-items: start; padding: clamp(24px, 5vw, 40px); border-radius: 24px; background: var(--green-900); color: #e7eee9; }
+      .install-panel h2 { margin: 0 0 10px; color: #d6f2e2; font-size: 1.7rem; }
+      .install-panel p { margin: 0; color: #c4d5ca; }
+      .install-steps { display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; counter-reset: install; }
+      .install-steps li { position: relative; min-height: 42px; padding-left: 50px; color: #f4f8f5; counter-increment: install; }
+      .install-steps li::before { position: absolute; top: 0; left: 0; display: grid; width: 34px; height: 34px; place-items: center; border-radius: 50%; background: var(--gold-500); color: #173b2c; content: counter(install); font-weight: 800; }
+      .install-note { margin-top: 22px !important; padding-top: 18px; border-top: 1px solid rgba(255, 255, 255, .17); font-size: .88rem; }
+      .back-row { margin-top: 30px; text-align: center; }
+      .back-link { display: inline-flex; padding: 13px 21px; border-radius: 999px; background: linear-gradient(135deg, var(--green-600), var(--green-800)); color: #fff; font-weight: 700; text-decoration: none; }
+      :root[data-theme="dark"] .back-link { background: linear-gradient(135deg, #2c7954, #1f6a4f); color: #fff; }
+      .page-footer { margin-top: 30px; color: var(--muted); text-align: center; font-size: .88rem; }
+      :root[data-theme="dark"] .hero, :root[data-theme="dark"] .feature-card { border-color: rgba(214, 242, 226, .12); background: rgba(26, 39, 31, .94); }
+      :root[data-theme="dark"] .install-panel { background: #10281d; color: #e7eee9; }
+      :root[data-theme="dark"] .settings-menu-panel .theme-toggle { border-color: rgba(214, 242, 226, .2); background: #26382d; color: #d6f2e2; }
+      :root[data-theme="dark"] .home-link { border-color: rgba(214, 242, 226, .2); }
+      @media (max-width: 720px) {
+        body { padding: 16px 14px 32px; }
+        .hero { grid-template-columns: 1fr; padding: 30px 24px; }
+        .app-visual { grid-row: 1; }
+        .app-icon { width: 142px; border-width: 5px; border-radius: 30%; }
+        .feature-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .install-panel { grid-template-columns: 1fr; gap: 22px; }
+      }
+      @media (max-width: 460px) {
+        .page-top { align-items: flex-start; }
+        .brand { font-size: .82rem; }
+        .brand img { width: 36px; height: 36px; }
+        .settings-menu-label, .settings-menu-chevron { display: none; }
+        .feature-grid { grid-template-columns: 1fr; }
+        .hero-actions { align-items: stretch; flex-direction: column; }
+        .download-button, .home-link { width: 100%; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+      }
+    </style>
+  </head>
+  <body class="support-page-redesign">
+    <div class="page-loader" aria-hidden="true"><span class="page-loader-mark">🌾</span></div>
+    <div class="download-wrap">
+      <header class="page-top">
+        <a class="brand" href="index.html" aria-label="Kisaan Sathi home">
+          <img src="kisaan-sathi-icon.jpeg" alt="" />
+          <span>KISAAN SATHI</span>
+        </a>
+        <details class="settings-menu">
+          <summary aria-label="Language and appearance settings">
+            <span aria-hidden="true">⚙</span>
+            <span class="settings-menu-label">Settings</span>
+            <span class="settings-menu-chevron" aria-hidden="true">▾</span>
+          </summary>
+          <div class="settings-menu-panel">
+            <button class="language-toggle" id="language-toggle" type="button" aria-label="Switch to Hindi">हिंदी</button>
+            <button class="theme-toggle" type="button">Dark Mode</button>
+          </div>
+        </details>
+      </header>
+
+      <main>
+        <section class="hero" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <span class="eyebrow" data-en="🌱 Your farming companion" data-hi="🌱 खेती में आपका साथी">🌱 Your farming companion</span>
+            <h1 id="page-title" data-en="Smart farming support, right in your pocket." data-hi="खेती की स्मार्ट मदद, अब आपकी जेब में।">Smart farming support, right in your pocket.</h1>
+            <p data-en="Get practical crop guidance, irrigation planning, soil and pest care, scheme information, and expert support with the Kisaan Sathi Android app." data-hi="किसान साथी एंड्रॉइड ऐप के साथ फसल मार्गदर्शन, सिंचाई योजना, मिट्टी और कीट देखभाल, सरकारी योजनाओं की जानकारी और विशेषज्ञ सहायता पाएं।">Get practical crop guidance, irrigation planning, soil and pest care, scheme information, and expert support with the Kisaan Sathi Android app.</p>
+            <div class="hero-actions">
+              <a class="download-button" href="Kisaan-Sathi-app/Kisaan-Sathi.apk" download="Kisaan-Sathi.apk">
+                <span aria-hidden="true">⬇</span>
+                <span data-en="Download for Android" data-hi="एंड्रॉइड के लिए डाउनलोड करें">Download for Android</span>
+              </a>
+              <a class="home-link" href="index.html" data-en="Explore the website" data-hi="वेबसाइट देखें">Explore the website</a>
+            </div>
+            <p class="file-note" data-en="Android 7.0 or newer · APK download · About 19 MB" data-hi="एंड्रॉइड 7.0 या नया · APK डाउनलोड · लगभग 19 MB">Android 7.0 or newer · APK download · About 19 MB</p>
+          </div>
+          <div class="app-visual">
+            <img class="app-icon" src="kisaan-sathi-icon.jpeg" alt="Kisaan Sathi app icon" />
+            <p data-en="A practical toolkit for everyday farming decisions." data-hi="रोज़मर्रा के खेती के फैसलों के लिए एक उपयोगी टूलकिट।">A practical toolkit for everyday farming decisions.</p>
+          </div>
+        </section>
+
+        <section class="section" aria-labelledby="features-title">
+          <div class="section-heading">
+            <h2 id="features-title" data-en="Helpful tools for your farm" data-hi="आपके खेत के लिए उपयोगी सुविधाएं">Helpful tools for your farm</h2>
+            <p data-en="Bring essential farm information and support together in one app." data-hi="खेती की जरूरी जानकारी और सहायता को एक ही ऐप में पाएं।">Bring essential farm information and support together in one app.</p>
+          </div>
+          <div class="feature-grid">
+            <article class="feature-card">
+              <span class="feature-icon" aria-hidden="true">🌾</span>
+              <h3 data-en="Crop guidance" data-hi="फसल मार्गदर्शन">Crop guidance</h3>
+              <p data-en="Explore crop planning, sowing guidance, and field-ready checklists." data-hi="फसल योजना, बुवाई संबंधी सुझाव और खेत के लिए चेकलिस्ट देखें।">Explore crop planning, sowing guidance, and field-ready checklists.</p>
+            </article>
+            <article class="feature-card">
+              <span class="feature-icon" aria-hidden="true">💧</span>
+              <h3 data-en="Irrigation planning" data-hi="सिंचाई योजना">Irrigation planning</h3>
+              <p data-en="Estimate water needs and compare irrigation methods for your field." data-hi="पानी की जरूरत का अनुमान लगाएं और सिंचाई के तरीकों की तुलना करें।">Estimate water needs and compare irrigation methods for your field.</p>
+            </article>
+            <article class="feature-card">
+              <span class="feature-icon" aria-hidden="true">🛡️</span>
+              <h3 data-en="Soil and pest care" data-hi="मिट्टी और कीट देखभाल">Soil and pest care</h3>
+              <p data-en="Learn about soil health, common crop symptoms, and safer care practices." data-hi="मिट्टी के स्वास्थ्य, फसल के सामान्य लक्षणों और सुरक्षित देखभाल के तरीकों के बारे में जानें।">Learn about soil health, common crop symptoms, and safer care practices.</p>
+            </article>
+            <article class="feature-card">
+              <span class="feature-icon" aria-hidden="true">🏛️</span>
+              <h3 data-en="Government schemes" data-hi="सरकारी योजनाएं">Government schemes</h3>
+              <p data-en="Find plain-language guidance on farmer support schemes and applications." data-hi="किसान सहायता योजनाओं और आवेदन के बारे में सरल जानकारी पाएं।">Find plain-language guidance on farmer support schemes and applications.</p>
+            </article>
+            <article class="feature-card">
+              <span class="feature-icon" aria-hidden="true">🤖</span>
+              <h3 data-en="AI farming assistant" data-hi="AI कृषि सहायक">AI farming assistant</h3>
+              <p data-en="Ask farming questions and get helpful starting points for your next steps." data-hi="खेती से जुड़े सवाल पूछें और अगले कदमों के लिए उपयोगी सुझाव पाएं।">Ask farming questions and get helpful starting points for your next steps.</p>
+            </article>
+            <article class="feature-card">
+              <span class="feature-icon" aria-hidden="true">📞</span>
+              <h3 data-en="Expert support" data-hi="विशेषज्ञ सहायता">Expert support</h3>
+              <p data-en="Send a consultation request or contact the Kisaan Sathi support team." data-hi="परामर्श अनुरोध भेजें या किसान साथी सहायता टीम से संपर्क करें।">Send a consultation request or contact the Kisaan Sathi support team.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section install-panel" aria-labelledby="install-title">
+          <div>
+            <h2 id="install-title" data-en="Install in a few steps" data-hi="कुछ आसान चरणों में इंस्टॉल करें">Install in a few steps</h2>
+            <p data-en="The app is provided as an Android APK for direct download." data-hi="यह ऐप सीधे डाउनलोड के लिए Android APK के रूप में उपलब्ध है।">The app is provided as an Android APK for direct download.</p>
+            <p class="install-note" data-en="Your phone may ask you to allow installation from this browser. Only continue if you chose to download the Kisaan Sathi APK from this website." data-hi="आपका फोन इस ब्राउज़र से इंस्टॉल करने की अनुमति मांग सकता है। तभी आगे बढ़ें जब आपने इस वेबसाइट से किसान साथी APK डाउनलोड करने का विकल्प चुना हो।">Your phone may ask you to allow installation from this browser. Only continue if you chose to download the Kisaan Sathi APK from this website.</p>
+          </div>
+          <ol class="install-steps">
+            <li data-en="Tap “Download for Android” above and wait for the APK to finish downloading." data-hi="ऊपर “एंड्रॉइड के लिए डाउनलोड करें” पर टैप करें और APK डाउनलोड होने तक प्रतीक्षा करें।">Tap “Download for Android” above and wait for the APK to finish downloading.</li>
+            <li data-en="Open the downloaded Kisaan-Sathi.apk file from your notifications or Downloads folder." data-hi="डाउनलोड की गई Kisaan-Sathi.apk फ़ाइल को नोटिफिकेशन या Downloads फ़ोल्डर से खोलें।">Open the downloaded Kisaan-Sathi.apk file from your notifications or Downloads folder.</li>
+            <li data-en="Review Android’s install prompt, allow this source if asked, and tap Install." data-hi="Android के इंस्टॉल संदेश को पढ़ें, पूछे जाने पर इस स्रोत को अनुमति दें और Install पर टैप करें।">Review Android’s install prompt, allow this source if asked, and tap Install.</li>
+            <li data-en="Open Kisaan Sathi and choose your preferred language." data-hi="किसान साथी खोलें और अपनी पसंदीदा भाषा चुनें।">Open Kisaan Sathi and choose your preferred language.</li>
+          </ol>
+        </section>
+      </main>
+
+      <div class="back-row">
+        <a class="back-link" href="index.html" data-en="Back to Home" data-hi="मुखपृष्ठ पर वापस जाएं">Back to Home</a>
+      </div>
+
+      <footer class="page-footer">
+        <span data-en="Kisaan Sathi · Practical support for farmers" data-hi="किसान साथी · किसानों के लिए उपयोगी सहायता">Kisaan Sathi · Practical support for farmers</span>
+      </footer>
+    </div>
+    <script>
+      const languageToggle = document.getElementById('language-toggle');
+      let isHindi = new URLSearchParams(window.location.search).get('lang') === 'hi';
+      function setLanguage(useHindi) {
+        isHindi = useHindi;
+        document.querySelectorAll('[data-en][data-hi]').forEach((element) => {
+          element.textContent = isHindi ? element.dataset.hi : element.dataset.en;
+        });
+        document.documentElement.lang = isHindi ? 'hi' : 'en';
+        document.title = isHindi ? 'किसान साथी | ऐप डाउनलोड करें' : 'Kisaan Sathi | Download the App';
+        languageToggle.textContent = isHindi ? 'English' : 'हिंदी';
+        languageToggle.setAttribute('aria-label', isHindi ? 'Switch to English' : 'Switch to Hindi');
+        if (window.kisaanSathiRefreshThemeLabel) {
+          window.kisaanSathiRefreshThemeLabel();
+        }
+        document.querySelector('.back-link').href = isHindi ? 'index.html?lang=hi' : 'index.html';
+      }
+      languageToggle.addEventListener('click', () => {
+        window.kisaanSathiLanguageTransition(languageToggle, () => setLanguage(!isHindi));
+      });
+      setLanguage(isHindi);
+    </script>
+    <script src="theme.js"></script>
+    <script src="language-manager.js"></script>
+    <script src="agri-assistant.js"></script>
+  </body>
+</html>

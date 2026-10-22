@@ -32,6 +32,7 @@
     'soil-pest-care.html': 'Kisaan Sathi | Soil & Pest Care',
     'scheme-guidance.html': 'Kisaan Sathi | Scheme Guidance',
     'request-sent.html': 'Kisaan Sathi | Request Sent',
+    'download-app.html': 'Kisaan Sathi | Download the App',
   };
   const settingsLabels = {
     en: ['Settings', 'Language and appearance settings', 'Website language'],
